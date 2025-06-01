@@ -1,0 +1,41 @@
+managed implementation in class zbp_i_clp_ie_project unique;
+strict ( 2 );
+
+define behavior for ZI_CLP_IE_Project alias ProjectSet
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) ProjectID;
+//  association _Expenses { create; }
+//  association _TimeEntries { create; }
+}
+//
+//define behavior for ZI_CLP_IE_ProjectExpenses //alias <alias_name>
+////persistent table <???>
+//lock dependent by _Project
+//authorization dependent by _Project
+////etag master <field_name>
+//{
+//  update;
+//  delete;
+//  field ( readonly ) ProjBillgElmntEntrItmUUID;
+//  association _Project;
+//}
+//
+//define behavior for ZI_CLP_IE_ProjectTimeEntry //alias <alias_name>
+////persistent table <???>
+//lock dependent by _Project
+//authorization dependent by _Project
+////etag master <field_name>
+//{
+//  update;
+//  delete;
+//  field ( readonly ) ProjBillgElmntEntrItmUUID;
+//  association _Project;
+//}

@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TCLP_INVTRACK'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TCLP_INVTRACK'
+  }
+}
+define service ZAPI_CLP_INVTRACK_O4
+  provider contracts odata_v4_webapi {
+  expose ZC_TCLP_INVTRACK as INVTRACK;
+}

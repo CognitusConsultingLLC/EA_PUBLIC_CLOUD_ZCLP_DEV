@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_clp_im_project unique;
+strict ( 2 );
+
+define behavior for ZI_CLP_IM_Project alias ProjectSet
+with unmanaged save
+//persistent table <???>
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) ProjectID;
+}

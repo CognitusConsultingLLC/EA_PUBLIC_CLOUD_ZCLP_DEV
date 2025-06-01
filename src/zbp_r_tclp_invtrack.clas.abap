@@ -1,0 +1,5 @@
+CLASS zbp_r_tclp_invtrack DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_tclp_invtrack.
+ENDCLASS.
+
+CLASS zbp_r_tclp_invtrack IMPLEMENTATION.
+ENDCLASS.

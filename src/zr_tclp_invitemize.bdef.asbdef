@@ -1,0 +1,35 @@
+managed implementation in class ZBP_R_TCLP_INVITEMIZE unique;
+strict ( 2 );
+define behavior for ZR_TCLP_INVITEMIZE alias ZrTclpInvitemize
+persistent table ZTCLP_INVITEMIZE
+etag master Locallastchanged
+lock master
+authorization master( global )
+
+{
+  field ( readonly )
+   SapUuid,
+   Lastchanged,
+   Locallastchanged;
+
+  field ( numbering : managed )
+   SapUuid;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_INVITEMIZE
+  {
+    SapUuid = sap_uuid;
+    Prelimbillingdocument = prelimbillingdocument;
+    Narrativetype = narrativetype;
+    Counter = counter;
+    Narrative = narrative;
+    Amount = amount;
+    Currency = currency;
+    Lastchanged = lastchanged;
+    Locallastchanged = locallastchanged;
+  }
+}

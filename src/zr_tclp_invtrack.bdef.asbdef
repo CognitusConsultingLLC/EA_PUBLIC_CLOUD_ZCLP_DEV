@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_TCLP_INVTRACK unique;
+strict ( 2 );
+define behavior for ZR_TCLP_INVTRACK alias ZrTclpInvtrack
+persistent table ZTCLP_INVTRACK
+etag master LocalLastChanged
+lock master
+authorization master( global )
+
+{
+  field ( readonly )
+   SapUuid,
+   CreatedBy,
+   CreatedOn,
+   LastChangedBy,
+   LastChangedOn,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   SapUuid;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_INVTRACK
+  {
+    SapUuid = sap_uuid;
+    ProjBillgElmntEntrItmUuid = proj_billg_elmnt_entr_itm_uuid;
+    ProjectBillingElementUuid = project_billing_element_uuid;
+    WbsElementInternalId = wbs_element_internal_id;
+    Project = project;
+    ProjectBillingRequestUuid = project_billing_request_uuid;
+    Pbr = pbr;
+    Bdr = bdr;
+    Pbd = pbd;
+    Invoice = invoice;
+    PbrStatus = pbr_status;
+    BdrStatus = bdr_status;
+    PbdStatus = pbd_status;
+    InvoiceStatus = invoice_status;
+    CreatedBy = created_by;
+    CreatedOn = created_on;
+    LastChangedBy = last_changed_by;
+    LastChangedOn = last_changed_on;
+    LocalLastChanged = local_last_changed;
+  }
+}

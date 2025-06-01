@@ -1,0 +1,24 @@
+@EndUserText.label: 'SD for Invoice Finalizer'
+define service ZSD_CLP_INVOICEFINALIZER {
+  expose ZC_CLP_IF_PROJECTPBD        as PBD;
+  expose ZI_CLP_Project              as Project;
+  expose ZR_TCLP_INVITEMIZE          as Itemize;
+  expose ZI_CLP_BPPersonExtID        as BPPersonExtID;
+  expose ZI_CLP_DOCAPPROVALSTS_V     as YY1_CLPDocApprovalSts_V;
+  expose I_PrelimBillgDocStatus      as PrelimBillgDocStatus;
+  expose I_OvrlBillingDocReqStatus   as OvrlBillingDocReqStatus;
+  expose I_OverallSDProcessStatus    as OverallSDProcessStatus;
+  expose I_OverallBillingStatus      as OverallBillingStatus;
+  expose ZI_CLP_IF_MarkedWIP         as MarkedWIP;
+  expose I_BillingDocument           as BillingDocument;
+  expose I_BillingDocPrcgElmntBasic  as BillingDocPrcgElmntBasic;
+  expose I_Address_2                 as Address;
+  expose ZI_CLP_Address_2            as CLPAddress;
+  expose I_Customer                  as Customer;
+  expose I_BusinessPartner           as BusinessPartner;
+  expose I_BPCurrentDefaultAddress   as BPCurrentDefaultAddress;
+  expose I_BPAddressIndependentEmail as BPAddressIndependentEmail;
+  expose I_AddressEmailAddress_2     as AddressEmailAddress_2;
+  expose I_BusinessUserBasic         as BusinessUserBasic;
+  expose I_Customer_VH               as Customer_VH;
+}

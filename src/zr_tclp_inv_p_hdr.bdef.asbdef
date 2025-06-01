@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_TCLP_INV_P_HDR unique;
+strict ( 2 );
+define behavior for ZR_TCLP_INV_P_HDR alias ZrTclpInvPHdr
+persistent table ZTCLP_INV_P_HDR
+etag master LocalLastChanged
+lock master
+authorization master( global )
+
+{
+  field ( readonly )
+   InvoiceProcessId,
+   CreatedBy,
+   CreatedOn,
+   LastChangedBy,
+   LastChangedOn,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   InvoiceProcessId;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_INV_P_HDR
+  {
+    InvoiceProcessId = invoice_process_id;
+    ProjectId = project_id;
+    InvoiceDate = invoice_date;
+    TransactionCurrency = transaction_currency;
+    MarkOa = mark_oa;
+    ReliWip = reli_wip;
+    FinalInv = final_inv;
+    OutSourceSl = out_source_sl;
+    InvoiceInpFeeValue = invoice_inp_fee_value;
+    InvoiceInpAdminFeeValue = invoice_inp_admin_fee_value;
+    InvoiceInpExpenseValue = invoice_inp_expense_value;
+    InvoiceInpCourtesyDisc = invoice_inp_courtesy_disc;
+    InvoiceInpPriorAccAmount = invoice_inp_prior_acc_amount;
+    TotalInvoiceAmt = total_invoice_amt;
+    CreatedBy = created_by;
+    CreatedOn = created_on;
+    LastChangedBy = last_changed_by;
+    LastChangedOn = last_changed_on;
+    LocalLastChanged = local_last_changed;
+  }
+}

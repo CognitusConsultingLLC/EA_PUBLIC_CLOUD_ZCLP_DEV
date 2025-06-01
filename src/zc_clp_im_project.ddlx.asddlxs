@@ -1,0 +1,136 @@
+@Metadata.layer: #CORE
+annotate entity ZC_CLP_IM_PROJECT
+    with 
+{
+    @UI.lineItem: [{ position: 10 }]
+    @UI.selectionField: [{ position: 10 }]
+    ProjectID;
+//    ProjectUUID;
+//    ProjectInternalID;
+//    CustomerUUID;
+//    EnterpriseProjectServiceOrg;
+//    EntProjectIsConfidential;
+//    RestrictedTimePosting;
+//    ProjectCategory;
+//    ProjectSummaryTaskUUID;
+//    Project;
+//    ProjectDescription;
+//    ProcessingStatus;
+//    PlannedStartDate;
+//    PlannedEndDate;
+//    ActualStartDate;
+//    ActualFinishDate;
+//    PriorityCode;
+//    EntProjIsMultiSlsOrdItmsEnbld;
+//    ProjectStartDate;
+//    ProjectEndDate;
+//    WBSElementInternalID;
+//    ProjectProfileCode;
+//    ProfitCenter;
+//    CompanyCode;
+//    ControllingArea;
+//    FunctionalArea;
+//    Location;
+//    Plant;
+//    Currency;
+//    AvailabilityControlProfile;
+//    AvailabilityControlIsActive;
+//    InvestmentProfile;
+//    TaxJurisdiction;
+//    EnterpriseProjectType;
+//    ResponsibleCostCenter;
+//    IsBillingRelevant;
+//    ResultAnalysisInternalID;
+//    LeadingSalesOrder;
+//    LeadingSalesOrderItem;
+//    CreatedByUser;
+//    CreationDateTime;
+//    LastChangedByUser;
+    @UI.lineItem: [{ position: 50 }]
+    @UI.selectionField: [{ position: 50 }]
+    LastChangeDateTime;
+//    ProjectLastChangedByUser;
+//    ProjectLastChangedDateTime;
+//    YY1_BdgProjFee_CprC;
+//    YY1_AdminChargePerc_Cpr;
+//    YY1_Value5_Cpr;
+//    YY1_PricingCondCreated_Cpr;
+//    YY1_EngmntLtStatus_Cpr;
+//    YY1_HideAdminFee1_Cpr;
+//    YY1_MAFlag_Cpr;
+//    YY1_PriorYearProjectID_Cpr;
+//    YY1_InvoiceTemplate_Cpr;
+//    YY1_EngagementYear_Cpr;
+//    YY1_BdgProjRealizPerc_Cpr;
+//    YY1_EstimatedExpenses_Cpr;
+//    YY1_BdgProjWorkedValue_CprC;
+//    YY1_PrimaryServItem_Cpr;
+//    YY1_ConsolidateAdminis_Cpr;
+//    YY1_LEDESFlag_Cpr;
+//    YY1_OpportunityNumber_Cpr;
+//    YY1_ELInternalID_Cpr;
+//    YY1_NoOA_Cpr;
+//    YY1_ShowPage2_Cpr;
+//    YY1_BdgProjHrs_Cpr;
+//    YY1_AdminFlag_Cpr;
+//    YY1_OpportunityFlag_Cpr;
+//    YY1_EngagementType_Cpr;
+//    YY1_ProjectDescription_Cpr;
+//    YY1_EngmntLtNum_Cpr;
+//    YY1_BdgProjBlendRt_CprC;
+//    ManagerTeamMemberUUID;
+//    ManagerPersonWorkAgreement;
+//    ManagerPersonWorkAgrExtID;
+//    ManagerEmailAddress;
+//    ManagerPersonFullName;
+//    EngManagerTeamMemberUUID;
+//    EngManagerPersonWorkAgreement;
+//    EngManagerPersonWorkAgrExtID;
+//    EngManagerEmailAddress;
+//    EngManagerPersonFullName;
+//    BillerTeamMemberUUID;
+    @UI.lineItem: [{ position: 40 }]
+    @UI.selectionField: [{ position: 40 }]
+    BillerPersonWorkAgreement;
+//    BillerPersonWorkAgrExtID;
+//    BillerEmailAddress;
+//    BillerPersonFullName;
+//    EngPartnerTeamMemberUUID;
+    @UI.lineItem: [{ position: 30 }]
+    @UI.selectionField: [{ position: 30 }]
+    EngPartnerPersonWorkAgreement;
+//    EngPartnerPersonWorkAgrExtID;
+//    EngPartnerEmailAddress;
+//    EngPartnerPersonFullName;
+    @UI.lineItem: [{ position: 60 }]
+    @UI.selectionField: [{ position: 60 }]
+    NextBillingDueDate;
+    @UI.lineItem: [{ position: 60 }]
+    @UI.selectionField: [{ position: 60 }]
+    OpenBilling;
+//    TransactionCurrency;
+    @UI.lineItem: [{ position: 20 }]
+    @UI.selectionField: [{ position: 20 }]
+    Customer;
+//    CustomerName;
+//    /* Associations */
+//    _AuthGroup;
+//    _AuthRole;
+//    _AuthSubst;
+//    _AuthUser;
+//    _EnterpriseProjectForUser;
+//    _EntProjProjectRespPersn;
+//    _ProjectElement;
+//    _ProjectRole;
+//    _ProjectTeamMember;
+//    _YY1_BdgProjBlendRt_Cpr;
+//    _YY1_BdgProjFee_Cpr;
+//    _YY1_BdgProjWorkedValue_Cpr;
+//    _YY1_EngagementType_Cpr;
+//    _YY1_EngmntLtStatus_Cpr;
+//    _YY1_InvoiceTemplate_Cpr;
+//    _YY1_MAFlag_Cpr;
+//    _YY1_OpportunityFlag_Cpr;
+//    _YY1_PrimaryServItem_Cpr;
+    
+}

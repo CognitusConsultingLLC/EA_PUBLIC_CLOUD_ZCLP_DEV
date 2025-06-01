@@ -1,0 +1,5 @@
+CLASS zbp_r_tclp_billplanit DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_tclp_billplanit.
+ENDCLASS.
+
+CLASS zbp_r_tclp_billplanit IMPLEMENTATION.
+ENDCLASS.

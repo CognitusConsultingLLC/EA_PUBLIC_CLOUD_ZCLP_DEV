@@ -1,0 +1,62 @@
+managed implementation in class ZBP_R_TCLP_BILLPLANIT unique;
+strict ( 2 );
+define behavior for ZR_TCLP_BILLPLANIT alias ZrTclpBillplanit
+persistent table ZTCLP_BILLPLANIT
+etag master Locallastchanged
+lock master
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   Customerproject,
+   Salesorderitem,
+   Billingplan,
+   Billingplanitem;
+
+  field ( readonly )
+   SapUuid,
+   Lastchanged,
+   Locallastchanged;
+
+  field ( numbering : managed )
+   SapUuid;
+
+  field ( readonly : update )
+   Customerproject,
+   Salesorderitem,
+   Billingplan,
+   Billingplanitem;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_BILLPLANIT
+  {
+    SapUuid = sap_uuid;
+    Customerproject = customerproject;
+    Salesorderitem = salesorderitem;
+    Billingplan = billingplan;
+    Billingplanitem = billingplanitem;
+    Salesorder = salesorder;
+    Billingplanbillingdate = billingplanbillingdate;
+    Billingplanrelatedbillgstatus = billingplanrelatedbillgstatus;
+    Billingplanamount = billingplanamount;
+    Transactioncurrency = transactioncurrency;
+    Billingplanitemusage = billingplanitemusage;
+    Billingplanitemdescription = billingplanitemdescription;
+    Billingplanservicestartdate = billingplanservicestartdate;
+    Billingplanserviceenddate = billingplanserviceenddate;
+    Expenses = expenses;
+    Courtesydiscount = courtesydiscount;
+    Adminfee = adminfee;
+    Billingplanitemtype = billingplanitemtype;
+    Linkedcustomerproject = linkedcustomerproject;
+    Linkedsalesorderitem = linkedsalesorderitem;
+    Linkedbillingplan = linkedbillingplan;
+    Linkedbillingplanitem = linkedbillingplanitem;
+    Lastchanged = lastchanged;
+    Locallastchanged = locallastchanged;
+  }
+}

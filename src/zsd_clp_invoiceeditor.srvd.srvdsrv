@@ -1,0 +1,29 @@
+@EndUserText.label: 'SD for Invoice Editor'
+define service ZSD_CLP_INVOICEEDITOR {
+  expose ZC_CLP_IE_Project              as ProjectSet;
+  expose ZI_CLP_BPPersonExtID           as BPPersonExtID;
+  expose ZC_CLP_IE_ProjectTimeEntry     as TimeEntries;
+  expose ZC_CLP_IE_ProjectExpenses      as Expenses;
+  expose ZI_CLP_IE_Workpackage          as WorkPackage;
+  expose ZI_CLP_IE_ProjectOnAccountInv  as OnAccountInvoices;
+  expose ZI_CLP_IE_MarkedWIP            as MarkedWIP;
+  expose ZR_TCLP_WIPMARK                as WIPMark;
+  expose ZI_CLP_WIPMARK_UniqueInv       as UniqueInv;
+  expose I_EnterpriseProjectTeamMember  as EnterpriseProjectTeamMember;
+  expose ZI_CLP_CustProjBillElemEntry   as CustProjBillElemEntry;
+  expose I_SlsPrcgConditionRecord       as SlsPrcgConditionRecord;
+  expose I_SalesOrderItemPricingElement as SalesOrderItemPricingElement;
+  expose I_SalesOrderPricingElement     as SalesOrderPricingElement;
+  expose I_Address_2                    as Address;
+  expose ZI_CLP_Address_2               as CLPAddress;
+  expose I_Customer                     as Customer;
+  expose I_BusinessPartner              as BusinessPartner;
+  expose I_BPCurrentDefaultAddress      as BPCurrentDefaultAddress;
+  expose I_BPAddressIndependentEmail    as BPAddressIndependentEmail;
+  expose I_AddressEmailAddress_2        as AddressEmailAddress_2;
+  expose I_BusinessUserBasic            as BusinessUserBasic;
+  expose I_Customer_VH                  as Customer_VH;
+  expose ZI_CLP_JournalEntryItem        as JournalEntryItem;
+  expose I_BillingDocPrcgElmntBasic     as BillingDocPrcgElmntBasic;
+  expose ZC_CLP_IM_UnbilledScheduledInv as UnbilledScheduledInvoices;
+}

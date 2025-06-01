@@ -1,0 +1,5 @@
+CLASS zbp_i_clp_ie_project DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_clp_ie_project.
+ENDCLASS.
+
+CLASS zbp_i_clp_ie_project IMPLEMENTATION.
+ENDCLASS.

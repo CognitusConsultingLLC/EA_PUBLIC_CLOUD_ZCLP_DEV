@@ -1,0 +1,5 @@
+CLASS zbp_c_tclp_invitemize DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_tclp_invitemize.
+ENDCLASS.
+
+CLASS zbp_c_tclp_invitemize IMPLEMENTATION.
+ENDCLASS.

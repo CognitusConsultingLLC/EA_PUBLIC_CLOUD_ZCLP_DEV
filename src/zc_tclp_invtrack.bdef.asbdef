@@ -1,0 +1,10 @@
+projection implementation in class ZBP_C_TCLP_INVTRACK unique;
+strict ( 2 );
+define behavior for ZC_TCLP_INVTRACK alias ZcTclpInvtrack
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+}

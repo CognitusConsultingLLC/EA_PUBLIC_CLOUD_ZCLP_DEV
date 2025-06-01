@@ -1,0 +1,45 @@
+managed implementation in class ZBP_R_TCLP_WIPMARK unique;
+strict ( 2 );
+define behavior for ZR_TCLP_WIPMARK alias ZrTclpWipmark
+persistent table ZTCLP_WIPMARK
+etag master Locallastchanged
+lock master
+authorization master( global )
+
+{
+  field ( readonly )
+   SapUuid,
+   Createdby,
+   Createdon,
+   Lastchangedby,
+   Lastchanged,
+   Locallastchanged;
+
+  field ( numbering : managed )
+   SapUuid;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_WIPMARK
+  {
+    SapUuid = sap_uuid;
+    Projbillgelmntentritmuuid = projbillgelmntentritmuuid;
+    Projectbillingelementuuid = projectbillingelementuuid;
+    Wbselementinternalid = wbselementinternalid;
+    Project = project;
+    Projectbillingrequestuuid = projectbillingrequestuuid;
+    Pbr = pbr;
+    Bdr = bdr;
+    Pbd = pbd;
+    Invoice = invoice;
+    Status = status;
+    Createdby = createdby;
+    Createdon = createdon;
+    Lastchangedby = lastchangedby;
+    Lastchanged = lastchanged;
+    Locallastchanged = locallastchanged;
+  }
+}

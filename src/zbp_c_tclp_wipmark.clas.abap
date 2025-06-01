@@ -1,0 +1,5 @@
+CLASS zbp_c_tclp_wipmark DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_tclp_wipmark.
+ENDCLASS.
+
+CLASS zbp_c_tclp_wipmark IMPLEMENTATION.
+ENDCLASS.

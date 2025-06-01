@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_clp_if_projectpbd unique;
+strict ( 2 );
+
+define behavior for ZI_CLP_IF_ProjectPBD alias PBD
+with unmanaged save
+//persistent table <???>
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) BillingDocument;
+}
