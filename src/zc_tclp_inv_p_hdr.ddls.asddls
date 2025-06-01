@@ -2,7 +2,7 @@
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 @AccessControl.authorizationCheck: #CHECK
 define root view entity ZC_TCLP_INV_P_HDR
-  provider contract TRANSACTIONAL_QUERY
+  provider contract transactional_query
   as projection on ZR_TCLP_INV_P_HDR
 {
   key InvoiceProcessId,

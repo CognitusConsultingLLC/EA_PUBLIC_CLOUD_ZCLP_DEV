@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Proj PBD of Project Inv Finalizer'
+@EndUserText.label: 'Projection for PBD of Project Inv Finalizer'
 @Metadata.ignorePropagatedAnnotations: true
 define root view entity ZC_CLP_IF_PROJECTPBD
   as projection on ZI_CLP_IF_ProjectPBD

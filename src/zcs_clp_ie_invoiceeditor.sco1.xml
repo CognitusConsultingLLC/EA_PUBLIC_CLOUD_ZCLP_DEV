@@ -87,63 +87,63 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Print, edit messages, Delete, Lock, Display, Change, Release, Display in Value Help, Archive, Maintenance of manual auth., Close Out, Reload, Create or generate, Display of payment cards, Maintenance of payment cards</VALUE>
+          <VALUE>Archive, Close Out, Display in Value Help, Maintenance of manual auth., Release, Print, edit messages, Change, Display, Create or generate, Maintenance of payment cards, Reload, Delete, Display of payment cards, Lock</VALUE>
           <VALUES>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeaFew==</UUID>
-            <LOW_VALUE>04</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeelew==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdebFew==</UUID>
-            <LOW_VALUE>05</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdedlew==</UUID>
-            <LOW_VALUE>03</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeYlew==</UUID>
-            <LOW_VALUE>02</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeZFew==</UUID>
-            <LOW_VALUE>43</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdedFew==</UUID>
-            <LOW_VALUE>F4</LOW_VALUE>
-           </item>
            <item>
             <UUID>+hY+YllKH+CP5JdZdeblew==</UUID>
             <LOW_VALUE>24</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeYFew==</UUID>
-            <LOW_VALUE>C3</LOW_VALUE>
            </item>
            <item>
             <UUID>+hY+YllKH+CP5JdZdecFew==</UUID>
             <LOW_VALUE>C4</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeeFew==</UUID>
-            <LOW_VALUE>25</LOW_VALUE>
+            <UUID>+hY+YllKH+CP5JdZdedFew==</UUID>
+            <LOW_VALUE>F4</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeYFew==</UUID>
+            <LOW_VALUE>C3</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeZFew==</UUID>
+            <LOW_VALUE>43</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeaFew==</UUID>
+            <LOW_VALUE>04</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeYlew==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdedlew==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
            </item>
            <item>
             <UUID>+hY+YllKH+CP5JdZdeZlew==</UUID>
             <LOW_VALUE>01</LOW_VALUE>
            </item>
            <item>
+            <UUID>+hY+YllKH+CP5JdZdeclew==</UUID>
+            <LOW_VALUE>C1</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeeFew==</UUID>
+            <LOW_VALUE>25</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeelew==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+           <item>
             <UUID>+hY+YllKH+CP5JdZdealew==</UUID>
             <LOW_VALUE>C2</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeclew==</UUID>
-            <LOW_VALUE>C1</LOW_VALUE>
+            <UUID>+hY+YllKH+CP5JdZdebFew==</UUID>
+            <LOW_VALUE>05</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Activity</TEXT>
@@ -180,19 +180,27 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Print, edit messages, Change, Display in Value Help, Archive, Reload, Delete, Create or generate, Display</VALUE>
+          <VALUE>Print, edit messages, Display, Create or generate, Display in Value Help, Delete, Archive, Reload, Change</VALUE>
           <VALUES>
            <item>
             <UUID>+hY+YllKH+CP5JdZdegFew==</UUID>
             <LOW_VALUE>04</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeiFew==</UUID>
-            <LOW_VALUE>02</LOW_VALUE>
+            <UUID>+hY+YllKH+CP5JdZdehFew==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdejFew==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
            </item>
            <item>
             <UUID>+hY+YllKH+CP5JdZdeglew==</UUID>
             <LOW_VALUE>F4</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CP5JdZdeilew==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
            </item>
            <item>
             <UUID>+hY+YllKH+CP5JdZdejlew==</UUID>
@@ -203,16 +211,8 @@
             <LOW_VALUE>25</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeilew==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdejFew==</UUID>
-            <LOW_VALUE>01</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdehFew==</UUID>
-            <LOW_VALUE>03</LOW_VALUE>
+            <UUID>+hY+YllKH+CP5JdZdeiFew==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Activity</TEXT>
@@ -260,7 +260,7 @@
       </AUTH_ITEM>
      </item>
     </AUTH>
-    <PUBLISH_STATUS>u</PUBLISH_STATUS>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
     <PLUGIN_CONFIG>
      <item>
       <UI_OBJECT>cscn_type_selection</UI_OBJECT>

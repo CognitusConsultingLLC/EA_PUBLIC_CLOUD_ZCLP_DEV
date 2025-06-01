@@ -2,7 +2,7 @@
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZR_TCLP_WIPMARK
-  as select from ZTCLP_WIPMARK
+  as select from ztclp_wipmark
 {
   key sap_uuid as SapUuid,
   projbillgelmntentritmuuid as Projbillgelmntentritmuuid,

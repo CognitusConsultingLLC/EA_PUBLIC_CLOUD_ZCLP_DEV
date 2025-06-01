@@ -1,8 +1,8 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZR_TCLP_BILLPLANIT
-  as select from ZTCLP_BILLPLANIT
+  as select from ztclp_billplanit
 {
   key sap_uuid as SapUuid,
   customerproject as Customerproject,
