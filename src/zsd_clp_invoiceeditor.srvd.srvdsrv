@@ -26,4 +26,5 @@ define service ZSD_CLP_INVOICEEDITOR {
   expose ZI_CLP_JournalEntryItem        as JournalEntryItem;
   expose I_BillingDocPrcgElmntBasic     as BillingDocPrcgElmntBasic;
   expose ZC_CLP_IM_UnbilledScheduledInv as UnbilledScheduledInvoices;
+  expose ZI_CLP_BDocSum_MultiMatGrp     as BDocSum_MultiMatGrp;
 }

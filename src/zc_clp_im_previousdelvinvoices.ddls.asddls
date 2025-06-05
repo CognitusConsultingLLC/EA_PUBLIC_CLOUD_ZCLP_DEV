@@ -41,8 +41,13 @@ define view entity ZC_CLP_IM_PreviousDelvInvoices as projection on ZI_CLP_IM_Pre
       OverallDocumentBillingStatus,
       PrelimBillingDocumentStatus,
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      @EndUserText.label: 'Total Amount'
+      @EndUserText.label: 'Total Net Amount'
       TotalNetAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalTaxAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      @EndUserText.label: 'Total Gross Amount'
+      TotalGrossAmount,
       TransactionCurrency,
       OverallBillingDocReqStatus,
       OverallSDProcessStatus,
@@ -71,6 +76,12 @@ define view entity ZC_CLP_IM_PreviousDelvInvoices as projection on ZI_CLP_IM_Pre
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       @EndUserText.label: 'Courtesy Discount'
       CourtesyDiscount,
+      @EndUserText.label: 'ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ProfessionalFee,      
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      OnAccountToBeUtilized,
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       @EndUserText.label: 'Total Amount'
       TotalAmount,

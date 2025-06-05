@@ -55,6 +55,11 @@ define view entity ZI_CLP_IM_InvoicesInProcessU
       PrelimBillingDocumentStatus,
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       TotalNetAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalTaxAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      @EndUserText.label: 'Total Gross Amount'
+      TotalGrossAmount,
       TransactionCurrency,
       OverallBillingDocReqStatus,
       OverallSDProcessStatus,
@@ -72,6 +77,18 @@ define view entity ZI_CLP_IM_InvoicesInProcessU
       Status,
       StatusText,
       DateDelivered,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'  
+      ProfessionalFee,    
+      @Semantics.amount.currencyCode: 'TransactionCurrency'  
+      AdminFees,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      Expenses,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      CourtesyDiscount,      
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      OnAccountToBeUtilized,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
@@ -130,6 +147,8 @@ union select from ZI_CLP_ProjectPBD
       OverallDocumentBillingStatus,
       PrelimBillingDocumentStatus,
       TotalNetAmount,
+      TotalTaxAmount,
+      TotalGrossAmount,
       TransactionCurrency,
       OverallBillingDocReqStatus,
       OverallSDProcessStatus,
@@ -147,6 +166,13 @@ union select from ZI_CLP_ProjectPBD
       Status,
       StatusText,
       DateDelivered,
+        
+      ProfessionalFee,
+      AdminFees,
+      Expenses,
+      CourtesyDiscount,
+      OnAccountToBeUtilized,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
@@ -210,6 +236,8 @@ union select from ZI_CLP_ProjectBDR
       OverallDocumentBillingStatus,
       PrelimBillingDocumentStatus,
       TotalNetAmount,
+      TotalTaxAmount,
+      TotalGrossAmount,
       TransactionCurrency,
       OverallBillingDocReqStatus,
       OverallSDProcessStatus,
@@ -227,6 +255,12 @@ union select from ZI_CLP_ProjectBDR
       Status,
       StatusText,
       DateDelivered,
+      ProfessionalFee,  
+      AdminFees,
+      Expenses,
+      CourtesyDiscount,
+      OnAccountToBeUtilized,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,

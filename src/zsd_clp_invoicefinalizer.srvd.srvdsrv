@@ -21,4 +21,5 @@ define service ZSD_CLP_INVOICEFINALIZER {
   expose I_AddressEmailAddress_2     as AddressEmailAddress_2;
   expose I_BusinessUserBasic         as BusinessUserBasic;
   expose I_Customer_VH               as Customer_VH;
+  expose ZI_CLP_BDocSum_MultiMatGrp  as BDocSum_MultiMatGrp;
 }

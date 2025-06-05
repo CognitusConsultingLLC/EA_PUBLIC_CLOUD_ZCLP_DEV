@@ -144,7 +144,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
     ValuationFixedQuantity,
     ReferenceQuantityUnit,
     @Semantics: { quantity : {unitOfMeasure: 'ReferenceQuantityUnit'} }
-    ReferenceQuantity
+    ReferenceQuantity,
 //    AdditionalQuantity1Unit,
 //    AdditionalQuantity1,
 //    AdditionalQuantity2Unit,
@@ -160,7 +160,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    FiscalYearPeriod,
 //    PostingDate,
 //    DocumentDate,
-//    AccountingDocumentType,
+    AccountingDocumentType
 //    AccountingDocumentItem,
 //    AssignmentReference,
 //    AccountingDocumentCategory,

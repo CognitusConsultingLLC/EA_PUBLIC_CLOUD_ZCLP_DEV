@@ -51,6 +51,11 @@ define view entity ZI_CLP_IM_PreviousDelvInvoices
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       @EndUserText.label: 'Total Amount'
       TotalNetAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalTaxAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      @EndUserText.label: 'Total Gross Amount'
+      TotalGrossAmount,
       TransactionCurrency,
       OverallBillingDocReqStatus,
       OverallSDProcessStatus,
@@ -80,15 +85,21 @@ define view entity ZI_CLP_IM_PreviousDelvInvoices
       @EndUserText.label: 'Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       CourtesyDiscount,
-      
+      @EndUserText.label: 'ProfessionalFee'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ProfessionalFee,      
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      OnAccountToBeUtilized,
       @EndUserText.label: 'Total Amount'
-      (
-      cast(TotalNetAmount    as abap.dec(16,2)) +
-      cast(AdminFees            as abap.dec(16,2)) +
-      cast(Expenses             as abap.dec(16,2)) -
-      cast(CourtesyDiscount     as abap.dec(16,2))
-      )                    as TotalAmount,
+        @Semantics.amount.currencyCode: 'TransactionCurrency'
+        cast(
+            case when TotalNetAmount is not null then cast( TotalNetAmount as abap.dec(15,2))  else 0 end +
+            case when AdminFees       is not null then cast( AdminFees as abap.dec(15,2))  else 0 end +
+            case when Expenses        is not null then cast(  Expenses as abap.dec(15,2)) else 0 end -
+            case when CourtesyDiscount is not null then cast( CourtesyDiscount as abap.dec(15,2)) else 0 end
+            as abap.dec(16,2)
+        ) as TotalAmount,
       /* Associations */
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,

@@ -65,6 +65,7 @@ define root view entity ZI_CLP_IM_Project
       _CLP_Project.YY1_ConsolidateAdminis_Cpr,
       _CLP_Project.YY1_NoOA_Cpr,
       _CLP_Project.YY1_ShowPage2_Cpr,
+      _CLP_Project.YY1_AdminChargePerc_Cpr,
     _CLP_Project.ManagerTeamMemberUUID,
     _CLP_Project.ManagerPersonWorkAgreement,
     _CLP_Project.ManagerPersonWorkAgrExtID,

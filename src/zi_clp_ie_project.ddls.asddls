@@ -29,7 +29,9 @@ define root view entity ZI_CLP_IE_Project
 //                                                                                                 and _SalesDocumentPricingElement.PricingDateTime >= $session.system_date  
 //                                                                                                 and _SalesDocumentPricingElement.PricingDateTime <= $session.system_date   
 
-association [0..1] to ZI_CLP_IM_ProjectDevlBilling_A as _BillingDeliveredAggregation on _BillingDeliveredAggregation.ProjectID = _CLP_Project.ProjectID
+association [0..1] to ZI_CLP_IM_ProjectDevlBilling_A as _BillingDeliveredAggregation on _BillingDeliveredAggregation.ProjectID = _CLP_Project.ProjectID 
+
+association [0..1] to ZI_CLP_IM_ProjectAWDBilling_A as _BillingAwaitDelvAggregation on _BillingAwaitDelvAggregation.ProjectID = _CLP_Project.ProjectID
 
 {
   key ProjectID,
@@ -138,8 +140,10 @@ association [0..1] to ZI_CLP_IM_ProjectDevlBilling_A as _BillingDeliveredAggrega
       0 as ZDEV,
       0 as CurrentRealization,
       
-            @Semantics.amount.currencyCode: 'Currency'
+       @Semantics.amount.currencyCode: 'Currency'
       _BillingDeliveredAggregation.DeliveredBilling,
+       @Semantics.amount.currencyCode: 'Currency'
+      _BillingAwaitDelvAggregation.BillingAwaitDelv,
       /* Associations */
       _AuthGroup,
       _AuthRole,

@@ -103,6 +103,7 @@ define view entity ZI_CLP_ProjectPBD
       @EndUserText.label: 'ZAD3 Admin Fees'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZAD3AdminFees,
+
       @EndUserText.label: 'ZADO Admin Fees'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZADOAdminFees,
@@ -112,7 +113,43 @@ define view entity ZI_CLP_ProjectPBD
       @EndUserText.label: 'Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZCDSCourtesyDiscount,
+
+
+
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ZAD3AdminFees                                                                                           as AdminFees,
+      //      @EndUserText.label: 'Expenses'
+      //      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      //      cast( '0' as abap.dec(16,2) ) as Expenses,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ZCDSCourtesyDiscount                                                                                    as CourtesyDiscount,
+
+      @EndUserText.label: 'Total ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalProfessionalFee,
+      @EndUserText.label: 'Total Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalExpenses,
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      OnAccountToBeUtilized,
+      @EndUserText.label: 'Time WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TimeWriteOff,
+      @EndUserText.label: 'Expenses WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ExpensesWriteOff,
       
+      @EndUserText.label: 'ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalProfessionalFee - TimeWriteOff as ProfessionalFee,
+      cast( TotalProfessionalFee as abap.dec(15,2)) + cast( TimeWriteOff  as abap.dec(15,2)) as ProfessionalFee,
+      @EndUserText.label: 'Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalExpenses - ExpensesWriteOff as  Expenses,
+      cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
+
+
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _YY1_CLPDocApprovalSts_BDH,
@@ -123,4 +160,4 @@ define view entity ZI_CLP_ProjectPBD
 
 }
 where
-      SDDocumentCategory          =  'PBD'
+  SDDocumentCategory = 'PBD'
