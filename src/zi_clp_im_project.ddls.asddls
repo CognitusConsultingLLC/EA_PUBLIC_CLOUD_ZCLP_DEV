@@ -97,6 +97,7 @@ define root view entity ZI_CLP_IM_Project
 
       _CLP_Project.Customer,
       _CLP_Project.CustomerName,
+      _CLP_Project.IndependentAddressID,
 
       _BillingPlanItemAggregation.NextBillingDueDate,
       @Semantics.amount.currencyCode: 'Currency'
@@ -120,11 +121,12 @@ define root view entity ZI_CLP_IM_Project
       _CLP_Project._ProjectRole,
       _CLP_Project._ProjectTeamMember,
       _Workpackage,
-
+      _CurrentDefaultAddress,
       _ScheduledInvoicesInProcess,
       _UnbilledScheduledInvoices,
       _PreviouslyDeliveredInvoices,
       _BillingPlanItemAggregation,
       _BillingInprocessAggregation,
-      _BillingDeliveredAggregation
+      _BillingDeliveredAggregation,
+      _BPAddressIndependentEmail
 }

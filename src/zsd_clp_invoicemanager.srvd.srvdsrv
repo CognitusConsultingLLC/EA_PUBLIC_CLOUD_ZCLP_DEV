@@ -27,5 +27,6 @@ define service ZSD_CLP_InvoiceManager {
   expose I_CustProjSlsOrdItmBillgPlnItm;
   expose ZI_CLP_BDocSum_MultiMatGrp     as BDocSum_MultiMatGrp;
   expose ZI_CLP_ProjectPBD;
-  expose ZI_CLP_BillingDocSumByProdGrp;
+  expose ZI_CLP_BillingDocSumByProdGrp  as BillingDocSumByProdGrp;
+  expose ZI_CLP_BillingDocItBillPlanIt  as BillingDocItBillPlanIt;
 }

@@ -7,7 +7,7 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
-//define view entity ZI_CLP_BillingDocSumByProdGrp 
+//define view entity ZI_CLP_BillingDocSumByProdGrp
 //  as select from I_BillingDocumentItemBasic
 //{
 //    key BillingDocument,
@@ -22,26 +22,19 @@
 //    YY1_CLPManualExpensesX_BDI,
 //    TransactionCurrency
 
-    define view entity ZI_CLP_BillingDocSumByProdGrp
-  as select from I_BillingDocumentItemBasic
+define view entity ZI_CLP_BillingDocSumByProdGrp
+  as select from ZI_CLP_BillingDocWithTransform
 {
-    key BillingDocument,
+  key BillingDocument,
 
-    key case 
-        when ProductGroup = 'A001' and YY1_CLPManualExpensesX_BDI = 'X' 
-            then 'P002'
-        when ProductGroup = 'A001' and (YY1_CLPManualExpensesX_BDI is initial or YY1_CLPManualExpensesX_BDI = '') 
-            then 'P001'
-        else ProductGroup
-    end as TransformedProductGroup,
+  key TransformedProductGroup,
 
-    @Semantics.amount.currencyCode: 'TransactionCurrency'
-    sum(NetAmount) as TotalAmount,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      sum(NetAmount) as TotalAmount,
 
-    TransactionCurrency
+      TransactionCurrency
 }
 group by
-    BillingDocument,
-    ProductGroup,
-    YY1_CLPManualExpensesX_BDI,
-    TransactionCurrency
+  BillingDocument,
+  TransformedProductGroup,
+  TransactionCurrency

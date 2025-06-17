@@ -33,6 +33,15 @@ association [0..1] to ZI_CLP_IM_ProjectDevlBilling_A as _BillingDeliveredAggrega
 
 association [0..1] to ZI_CLP_IM_ProjectAWDBilling_A as _BillingAwaitDelvAggregation on _BillingAwaitDelvAggregation.ProjectID = _CLP_Project.ProjectID
 
+association [0..1] to ZI_CLP_LTD_calculations as _LTD_calculationsBA on _LTD_calculationsBA.ProjectInternalID = _CLP_Project.ProjectInternalID
+                                                                   and _LTD_calculationsBA.GLType = 'BilledAmount'
+association [0..1] to ZI_CLP_LTD_calculations as _LTD_calculationsLC on _LTD_calculationsLC.ProjectInternalID = _CLP_Project.ProjectInternalID
+                                                                   and _LTD_calculationsLC.GLType = 'LabourCosts'
+                                                                   
+                                                                   
+
+association [0..1] to ZI_CLP_ProjectTimeEntry_A as _ProjectTimeEntry_A on _ProjectTimeEntry_A.ProjectID = _CLP_Project.ProjectID
+
 {
   key ProjectID,
       ProjectUUID,
@@ -135,6 +144,13 @@ association [0..1] to ZI_CLP_IM_ProjectAWDBilling_A as _BillingAwaitDelvAggregat
       _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy as OpenTime,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
       _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy   as OpenExpenses,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+//      _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy + _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy as TotalWIP,
+      cast(
+            case when _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy is not null then cast( _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy as abap.dec(15,2))  else 0 end +
+            case when _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy       is not null then cast( _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy as abap.dec(15,2))  else 0 end
+            as abap.dec(16,2)
+        ) as TotalWIP,
       _IE_ProjectTimeEntry_A.DocumentCurrency,
       0 as ZADM,
       0 as ZDEV,
@@ -144,6 +160,28 @@ association [0..1] to ZI_CLP_IM_ProjectAWDBilling_A as _BillingAwaitDelvAggregat
       _BillingDeliveredAggregation.DeliveredBilling,
        @Semantics.amount.currencyCode: 'Currency'
       _BillingAwaitDelvAggregation.BillingAwaitDelv,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      _LTD_calculationsBA.TotalAmount as LTDBilledAmount,
+       @Semantics.amount.currencyCode: 'Currency'
+      _LTD_calculationsLC.TotalAmount as LTDLabourCosts,
+      
+//      _ProjectTimeEntry_A.SumOpenQuantity,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      _ProjectTimeEntry_A.SumOpenAmountInTransCrcy,
+      
+//      _ProjectTimeEntry_A.SumOriginalTotalQuantity,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      _ProjectTimeEntry_A.SumOriginalAmountInTransacCrcy,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      _ProjectTimeEntry_A.SumOriginalAmountInProjectCrcy,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      _ProjectTimeEntry_A.SumOriginalAmountInGlobalCrcy,
+      
       /* Associations */
       _AuthGroup,
       _AuthRole,

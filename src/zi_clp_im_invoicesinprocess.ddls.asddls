@@ -110,7 +110,17 @@ define view entity ZI_CLP_IM_InvoicesInProcess
             as abap.dec(16,2)
         ) as TotalAmount,
       
+      _IM_Project,
+      
+      
+      IndependentAddressID,
+      BusinessPartner,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
-      _IM_Project
+      _OverallSDProcessStatus,
+      _OverallBillingStatus,
+      _OvrlBillingDocReqStatus,
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }

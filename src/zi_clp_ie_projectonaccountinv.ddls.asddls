@@ -53,17 +53,17 @@ define view entity ZI_CLP_IE_ProjectOnAccountInv
       _ProjectOnAccountInvoice._SoldToParty,
       _ProjectOnAccountInvoice._TransactionCurrency,
 
-      @EndUserText.label: 'Admin Fees'
-      @Semantics.amount.currencyCode: 'TransactionCurrency'
-      _ProjectOnAccountInvoice.AdminFees,
+//      @EndUserText.label: 'Admin Fees'
+//      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      _ProjectOnAccountInvoice.AdminFees,
       //        coalesce(_ProjectOnAccountInvoice.ZAD1AdminFeeDec, 0) +
       //        coalesce(_ProjectOnAccountInvoice.ZAD3AdminFeeDec, 0) as AdminFees,
-      @EndUserText.label: 'Expenses'
-      @Semantics.amount.currencyCode: 'TransactionCurrency'
-      _ProjectOnAccountInvoice.Expenses,
-      @EndUserText.label: 'Courtesy Discount'
-      @Semantics.amount.currencyCode: 'TransactionCurrency'
-      _ProjectOnAccountInvoice.CourtesyDiscount,
+//      @EndUserText.label: 'Expenses'
+//      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      _ProjectOnAccountInvoice.Expenses,
+//      @EndUserText.label: 'Courtesy Discount'
+//      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      _ProjectOnAccountInvoice.CourtesyDiscount,
 
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       @EndUserText.label: 'Total Amount'
@@ -93,6 +93,42 @@ define view entity ZI_CLP_IE_ProjectOnAccountInv
       @EndUserText.label: 'ZCDS Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZCDSCourtesyDiscount,
+      
+            @EndUserText.label: 'Admin Fees'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.ItemAdminFee                                                                                           as AdminFees,
+      //      @EndUserText.label: 'Expenses'
+      //      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      //      cast( '0' as abap.dec(16,2) ) as Expenses,
+      @EndUserText.label: 'Courtesy Discount'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.ItemCourtesyDiscount                                                                                    as CourtesyDiscount,
+
+
+      @EndUserText.label: 'Total ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.TotalProfessionalFee,
+      @EndUserText.label: 'Total Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.TotalExpenses,
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.OnAccountToBeUtilized,
+      @EndUserText.label: 'Time WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.TimeWriteOff,
+      @EndUserText.label: 'Expenses WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      _ProjectBillingDocHdr.ExpensesWriteOff,
+      
+      @EndUserText.label: 'ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalProfessionalFee - TimeWriteOff as ProfessionalFee,
+      cast( _ProjectBillingDocHdr.TotalProfessionalFee as abap.dec(15,2)) + cast( _ProjectBillingDocHdr.TimeWriteOff  as abap.dec(15,2)) as ProfessionalFee,
+      @EndUserText.label: 'Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalExpenses - ExpensesWriteOff as  Expenses,
+      cast( _ProjectBillingDocHdr.TotalExpenses as abap.dec(15,2)) + cast( _ProjectBillingDocHdr.ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
 
       _ProjectBillingDocHdr
 }

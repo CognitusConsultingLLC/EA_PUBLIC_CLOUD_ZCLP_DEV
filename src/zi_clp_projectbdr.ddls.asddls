@@ -11,6 +11,7 @@ define view entity ZI_CLP_ProjectBDR
   as select from ZI_CLP_ProjectBillingDocHdr
   association [0..1] to I_Customer                  as _I_Customer               on _I_Customer.Customer = $projection.BillToParty
   association [0..*] to ZI_CLP_BillingDoctItemBasic as _BillingDocumentItemBasic on _BillingDocumentItemBasic.BillingDocument = $projection.BillingDocument
+  association [0..1] to I_BusinessPartner                  as _BusinessPartner               on _BusinessPartner.BusinessPartner = $projection.BillToParty
 {
   key BillingDocument,
       ProjectID,
@@ -113,12 +114,16 @@ define view entity ZI_CLP_ProjectBDR
       //      cast( '0' as abap.dec(16,2) ) as CourtesyDiscount,
 
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZAD3AdminFees                                                                                           as AdminFees,
+      ZAD3AdminFees ,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ItemAdminFee                                                                                           as AdminFees,
       //      @EndUserText.label: 'Expenses'
       //      @Semantics.amount.currencyCode: 'TransactionCurrency'
       //      cast( '0' as abap.dec(16,2) ) as Expenses,
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZCDSCourtesyDiscount                                                                                    as CourtesyDiscount,
+      ZCDSCourtesyDiscount ,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ItemCourtesyDiscount                                                                                    as CourtesyDiscount,
 
 
       @EndUserText.label: 'Total ProfessionalFee'
@@ -146,12 +151,16 @@ define view entity ZI_CLP_ProjectBDR
 //      TotalExpenses - ExpensesWriteOff as  Expenses,
       cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
 
+      _BusinessPartner.IndependentAddressID,
+      _BusinessPartner.BusinessPartner,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BusinessPartner._BPAddressIndependentEmail
 
 }
 where

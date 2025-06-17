@@ -88,13 +88,16 @@ define view entity ZI_CLP_IM_InvoicesInProcessU
       @EndUserText.label: 'On Account To Be Utilized'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       OnAccountToBeUtilized,
+      IndependentAddressID,
+      BusinessPartner,
       
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }
 where
   Status = 'AWD' 
@@ -172,13 +175,16 @@ union select from ZI_CLP_ProjectPBD
       Expenses,
       CourtesyDiscount,
       OnAccountToBeUtilized,
+      IndependentAddressID,
+      BusinessPartner,
       
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }
 where
        ( Status                     = 'IPR'
@@ -260,11 +266,14 @@ union select from ZI_CLP_ProjectBDR
       Expenses,
       CourtesyDiscount,
       OnAccountToBeUtilized,
+      IndependentAddressID,
+      BusinessPartner,
       
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }where OverallBillingDocReqStatus = 'A'

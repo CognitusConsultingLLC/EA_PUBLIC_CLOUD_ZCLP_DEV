@@ -86,7 +86,15 @@ define view entity ZC_CLP_IM_PreviousDelvInvoices as projection on ZI_CLP_IM_Pre
       @EndUserText.label: 'Total Amount'
       TotalAmount,
       /* Associations */
+      _IM_Project: redirected to ZC_CLP_IM_PROJECT,
+      IndependentAddressID,
+      BusinessPartner,
+      
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
-      _IM_Project: redirected to ZC_CLP_IM_PROJECT
+      _OverallSDProcessStatus,
+      _OverallBillingStatus,
+      _OvrlBillingDocReqStatus,
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }

@@ -14,6 +14,7 @@ define view entity ZI_CLP_IM_UnbilledScheduledInv
                                                                                     and _AddrCurDefaultEmailAddress.AddressPersonID = ''
 
   association  to parent ZI_CLP_IM_Project            as _IM_Project                 on  _IM_Project.ProjectID = $projection.CustomerProject
+  association [0..1] to I_BusinessPartner                  as _BusinessPartner               on _BusinessPartner.BusinessPartner = $projection.BillToParty
   //  association [0..1] to ZI_CLP_CommunicationUser_CE  as _CommunicationUser_CE on _CommunicationUser_CE.UserID = $projection.CreatedByUser
 {
   key CustomerProject,
@@ -84,6 +85,9 @@ define view entity ZI_CLP_IM_UnbilledScheduledInv
       _TransactionCurrency,
       _Customer,
       _AddrCurDefaultEmailAddress,
-      _IM_Project
+      _IM_Project,      
+      _BusinessPartner.IndependentAddressID,
+      _BusinessPartner.BusinessPartner,
+      _BusinessPartner._BPAddressIndependentEmail
 } where BillingPlanItemUsage_2        = '1' 
 and BillingPlanRelatedBillgStatus = 'A'

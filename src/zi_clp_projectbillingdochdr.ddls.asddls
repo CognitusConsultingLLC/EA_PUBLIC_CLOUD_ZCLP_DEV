@@ -162,12 +162,13 @@ define view entity ZI_CLP_ProjectBillingDocHdr
 ////      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,
 //      coalesce(cast(_MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount as abap.dec(15,2)), 0) as ExpensesWriteOff,
       
-              coalesce(
-            cast(_ProdGrpBillingSums[TransformedProductGroup = 'P001'].TotalAmount as abap.dec(15,2)), 0
-        ) +
-        coalesce(
-            cast(_ProdGrpBillingSums[TransformedProductGroup = 'A001'].TotalAmount as abap.dec(15,2)), 0
-        ) as TotalProfessionalFee,
+//              coalesce(
+//            cast(_ProdGrpBillingSums[TransformedProductGroup = 'P001'].TotalAmount as abap.dec(15,2)), 0
+//        ) +
+//        coalesce(
+//            cast(_ProdGrpBillingSums[TransformedProductGroup = 'A001'].TotalAmount as abap.dec(15,2)), 0
+//        ) as TotalProfessionalFee,
+      coalesce(cast(_ProdGrpBillingSums[TransformedProductGroup = 'P001'].TotalAmount as abap.dec(15,2)), 0) as TotalProfessionalFee,
       @EndUserText.label: 'Expenses'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      _MatGrpBillingSums[ MaterialGroup = 'P002' ].TotalAmount                          as TotalExpenses,
@@ -184,7 +185,14 @@ define view entity ZI_CLP_ProjectBillingDocHdr
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,
       coalesce(cast(_ProdGrpBillingSums[ TransformedProductGroup = 'B002' ].TotalAmount as abap.dec(15,2)), 0) as ExpensesWriteOff,
-
+      @EndUserText.label: 'Item Admin Fee (ZADO + ZAD3)'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,
+      coalesce(cast(_ProdGrpBillingSums[ TransformedProductGroup = 'ZADM' ].TotalAmount as abap.dec(15,2)), 0) as ItemAdminFee,
+      @EndUserText.label: 'Item Courtesy Discount'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,
+      coalesce(cast(_ProdGrpBillingSums[ TransformedProductGroup = 'YB003' ].TotalAmount as abap.dec(15,2)), 0) as ItemCourtesyDiscount,
       _UniqueBDWorkPackage,
       _YY1_CLPDocApprovalSts_BDH,
       _OverallSDProcessStatus,

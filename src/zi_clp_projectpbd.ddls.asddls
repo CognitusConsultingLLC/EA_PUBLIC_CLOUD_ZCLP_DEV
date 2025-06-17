@@ -11,6 +11,7 @@ define view entity ZI_CLP_ProjectPBD
   as select from ZI_CLP_ProjectBillingDocHdr
   association [0..1] to I_Customer                  as _I_Customer               on _I_Customer.Customer = $projection.BillToParty
   association [0..*] to ZI_CLP_BillingDoctItemBasic as _BillingDocumentItemBasic on _BillingDocumentItemBasic.BillingDocument = $projection.BillingDocument
+  association [0..1] to I_BusinessPartner                  as _BusinessPartner               on _BusinessPartner.BusinessPartner = $projection.BillToParty
 {
   key BillingDocument,
       ProjectID,
@@ -117,12 +118,12 @@ define view entity ZI_CLP_ProjectPBD
 
 
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZAD3AdminFees                                                                                           as AdminFees,
+      ItemAdminFee                                                                                           as AdminFees,
       //      @EndUserText.label: 'Expenses'
       //      @Semantics.amount.currencyCode: 'TransactionCurrency'
       //      cast( '0' as abap.dec(16,2) ) as Expenses,
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZCDSCourtesyDiscount                                                                                    as CourtesyDiscount,
+      ItemCourtesyDiscount                                                                                    as CourtesyDiscount,
 
       @EndUserText.label: 'Total ProfessionalFee'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
@@ -150,13 +151,17 @@ define view entity ZI_CLP_ProjectPBD
       cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
 
 
+      _BusinessPartner.IndependentAddressID,
+      _BusinessPartner.BusinessPartner,
+      
+      _YY1_CLPDocApprovalSts_BDH,
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
-      _YY1_CLPDocApprovalSts_BDH,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BusinessPartner._BPAddressIndependentEmail
 
 }
 where

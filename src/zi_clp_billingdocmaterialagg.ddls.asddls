@@ -13,5 +13,7 @@ define view entity ZI_CLP_BillingDocMaterialAgg
     BillingDocument,
     Product,
     count(*) as ItemCount
-}
+}where Product != 'ZADO'
+ and Product != 'ZAD3'
+ and Product != 'YB003'
 group by BillingDocument, Product

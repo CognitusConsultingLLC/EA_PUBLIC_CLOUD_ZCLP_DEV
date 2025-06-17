@@ -11,6 +11,7 @@ define view entity ZI_CLP_ProjectINV
   as select from ZI_CLP_ProjectBillingDocHdr
   association [0..1] to I_Customer                  as _I_Customer               on _I_Customer.Customer = $projection.BillToParty
   association [0..*] to ZI_CLP_BillingDoctItemBasic as _BillingDocumentItemBasic on _BillingDocumentItemBasic.BillingDocument = $projection.BillingDocument
+  association [0..1] to I_BusinessPartner                  as _BusinessPartner               on _BusinessPartner.BusinessPartner = $projection.BillToParty
 {
   key BillingDocument,
       ProjectID,
@@ -125,17 +126,21 @@ define view entity ZI_CLP_ProjectINV
       @EndUserText.label: 'ZADR Admin Fees'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZADRAdminFees,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ZAD3AdminFees,
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ZCDSCourtesyDiscount,
 
 
       @EndUserText.label: 'Admin Fees'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZAD3AdminFees                                                                                           as AdminFees,
+      ItemAdminFee                                                                                           as AdminFees,
       //      @EndUserText.label: 'Expenses'
       //      @Semantics.amount.currencyCode: 'TransactionCurrency'
       //      cast( '0' as abap.dec(16,2) ) as Expenses,
       @EndUserText.label: 'Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ZCDSCourtesyDiscount                                                                                    as CourtesyDiscount,
+      ItemCourtesyDiscount                                                                                    as CourtesyDiscount,
 
 
       @EndUserText.label: 'Total ProfessionalFee'
@@ -162,13 +167,16 @@ define view entity ZI_CLP_ProjectINV
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      TotalExpenses - ExpensesWriteOff as  Expenses,
       cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
+      _BusinessPartner.IndependentAddressID,
+      _BusinessPartner.BusinessPartner,
       
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BusinessPartner._BPAddressIndependentEmail
 
 }
 where

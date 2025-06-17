@@ -160,7 +160,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    FiscalYearPeriod,
 //    PostingDate,
 //    DocumentDate,
-    AccountingDocumentType
+    AccountingDocumentType,
 //    AccountingDocumentItem,
 //    AssignmentReference,
 //    AccountingDocumentCategory,
@@ -284,7 +284,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    WBSElementInternalID,
 //    PartnerWBSElementInternalID,
 //    WBSElement,
-//    ProjectInternalID,
+    ProjectInternalID
 //    PartnerProjectInternalID,
 //    WorkPackage,
 //    Project,

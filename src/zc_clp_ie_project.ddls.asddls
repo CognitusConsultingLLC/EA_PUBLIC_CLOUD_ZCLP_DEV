@@ -99,12 +99,35 @@ define root view entity ZC_CLP_IE_Project
       OpenTime,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
       OpenExpenses,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      TotalWIP,
       DocumentCurrency,
       ZADM,
       ZDEV,
       CurrentRealization,
+      @EndUserText.label: 'Previously Delivered Billing'
       @Semantics.amount.currencyCode: 'Currency'
       DeliveredBilling,
+      @EndUserText.label: 'Billing Awaiting Delivery'
+      @Semantics.amount.currencyCode: 'Currency'
+      BillingAwaitDelv,
+      @Semantics.amount.currencyCode: 'Currency'
+      LTDBilledAmount,
+       @Semantics.amount.currencyCode: 'Currency'
+      LTDLabourCosts,
+      
+      @Semantics.amount.currencyCode: 'Currency'
+      SumOpenAmountInTransCrcy,      
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      SumOriginalAmountInTransacCrcy,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      SumOriginalAmountInProjectCrcy,
+      
+       @Semantics.amount.currencyCode: 'Currency'
+      SumOriginalAmountInGlobalCrcy,
+      
       /* Associations */
       _AuthGroup,
       _AuthRole,

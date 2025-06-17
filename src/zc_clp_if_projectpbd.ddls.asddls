@@ -89,6 +89,39 @@ define root view entity ZC_CLP_IF_PROJECTPBD
       @EndUserText.label: 'ZCDS Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ZCDSCourtesyDiscount,
+      
+      @EndUserText.label: 'Total ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalProfessionalFee,
+      @EndUserText.label: 'Total Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TotalExpenses,
+      @EndUserText.label: 'On Account To Be Utilized'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      OnAccountToBeUtilized,
+      @EndUserText.label: 'Time WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      TimeWriteOff,
+      @EndUserText.label: 'Expenses WriteOff'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      ExpensesWriteOff,
+      
+      @EndUserText.label: 'ProfessionalFee'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalProfessionalFee - TimeWriteOff as ProfessionalFee,
+      ProfessionalFee,
+      @EndUserText.label: 'Expenses'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+//      TotalExpenses - ExpensesWriteOff as  Expenses,
+      Expenses,
+      @EndUserText.label: 'Admin Fees'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      AdminFees,
+      @EndUserText.label: 'Courtesy Discount'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      CourtesyDiscount,
+      BusinessPartner,
+      IndependentAddressID,
       /* Associations */
       _BillingDocumentItemBasic,
       _Itemize,
@@ -98,5 +131,6 @@ define root view entity ZC_CLP_IF_PROJECTPBD
       _OverallSDProcessStatus,
       _OverallBillingStatus,
       _OvrlBillingDocReqStatus,
-      _PrelimBillingDocumentStatus
+      _PrelimBillingDocumentStatus,
+      _BPAddressIndependentEmail
 }

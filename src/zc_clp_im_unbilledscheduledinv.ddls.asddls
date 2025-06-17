@@ -73,6 +73,9 @@ define view entity ZC_CLP_IM_UnbilledScheduledInv
       _Customer,
       _SalesOrder,
       _TransactionCurrency,
-      _IM_Project: redirected to parent ZC_CLP_IM_PROJECT
+      _IM_Project: redirected to parent ZC_CLP_IM_PROJECT,      
+      IndependentAddressID,
+      BusinessPartner,
+      _BPAddressIndependentEmail
 
 }

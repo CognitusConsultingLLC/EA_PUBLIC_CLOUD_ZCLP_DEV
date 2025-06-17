@@ -99,6 +99,7 @@ define root view entity ZC_CLP_IM_PROJECT
       
       Customer,
       CustomerName,
+      IndependentAddressID,
       /* Associations */
       _AuthGroup,
       _AuthRole,
@@ -110,11 +111,13 @@ define root view entity ZC_CLP_IM_PROJECT
       _ProjectRole,
       _ProjectTeamMember,
       _Workpackage,
+      _CurrentDefaultAddress,
       
       _ScheduledInvoicesInProcess: redirected to ZC_CLP_IM_InvoicesInProcess,
       _UnbilledScheduledInvoices: redirected to composition child  ZC_CLP_IM_UnbilledScheduledInv,
       _PreviouslyDeliveredInvoices: redirected to ZC_CLP_IM_PreviousDelvInvoices,
       _BillingPlanItemAggregation,
       _BillingInprocessAggregation,
-      _BillingDeliveredAggregation
+      _BillingDeliveredAggregation,
+      _BPAddressIndependentEmail
 }
