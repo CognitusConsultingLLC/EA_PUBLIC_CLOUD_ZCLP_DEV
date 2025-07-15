@@ -87,12 +87,16 @@ define view entity ZI_CLP_ProjectPBD
       @EndUserText.label: 'Status'
       case when  YY1_CLPDocApprovalSts_BDH = 'P' then 'IPR'
            when  YY1_CLPDocApprovalSts_BDH = 'A' then 'AWA'
+           when  YY1_CLPDocApprovalSts_BDH = 'D' then 'RWK'
+           when  ( YY1_CLPNonStdDelivery_BDH = 'X' and YY1_CLPNonStdDelvrDate_BDH = '00000000'  and BillingDocumentDate > $session.system_date ) then 'PMD'
            when  YY1_CLPDocApprovalSts_BDH = 'B' and  BillingDocumentDate > $session.system_date and YY1_CLPNonStdDelivery_BDH = '' then 'PAD'
       else ''
       end                                                                                                     as Status,
       @EndUserText.label: 'Status Text'
       case when  YY1_CLPDocApprovalSts_BDH = 'P' then 'In Preparation'
            when  YY1_CLPDocApprovalSts_BDH = 'A' then 'Pending Approval'
+           when  YY1_CLPDocApprovalSts_BDH = 'D' then 'To Be Reworked'
+           when  ( YY1_CLPNonStdDelivery_BDH = 'X' and YY1_CLPNonStdDelvrDate_BDH = '00000000'  and BillingDocumentDate > $session.system_date ) then 'Pending Manual Delivery'
            when  YY1_CLPDocApprovalSts_BDH = 'B' and  BillingDocumentDate > $session.system_date and YY1_CLPNonStdDelivery_BDH = '' then 'Pending Auto Delivery'
       else ''
       end                                                                                                     as StatusText,

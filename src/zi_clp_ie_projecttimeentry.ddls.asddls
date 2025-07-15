@@ -7,6 +7,7 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
+@Analytics.query: true
 define view entity ZI_CLP_IE_ProjectTimeEntry
   as select from ZI_CLP_ProjectTimeEntry as _ProjectTimeEntry
   left outer join ZI_CLP_IE_MarkedWIP as _MarkedWIP
@@ -148,6 +149,20 @@ define view entity ZI_CLP_IE_ProjectTimeEntry
       _BPPersonExtID.EmailAddress,
       _BPPersonExtID.PersonFullName,  
       _ProjectTimeEntry.EngPartnerBP,
+      
+      
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      _ProjectTimeEntry.PSP0Rate,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      _ProjectTimeEntry.ProfessionalFee,
+
+      _ProjectTimeEntry.AdminRate,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      _ProjectTimeEntry.AdminFee,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      _ProjectTimeEntry.TotalProfessionalFee,
+      
+     
       /* Associations */
       _ProjectTimeEntry._AccountingDocument,
       _ProjectTimeEntry._CompanyCode,

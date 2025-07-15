@@ -1,0 +1,9 @@
+@EndUserText.label: 'DCL for ZR_TCLP_WIPMARK'
+@MappingRole: true
+define role ZR_TCLP_WIPMARK {
+    grant
+        select
+            on
+                ZR_TCLP_WIPMARK;
+                        
+}

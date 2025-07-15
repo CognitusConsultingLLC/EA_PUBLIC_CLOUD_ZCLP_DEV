@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Project view of Project for Invoice Editor'
 @Metadata.ignorePropagatedAnnotations: true
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZC_CLP_IE_Project
   as projection on ZI_CLP_IE_Project  
 //  association [0..1] to I_Address_2       as _Address_2             on  _Address_2.AddressID = $projection.AddressID
@@ -98,6 +99,8 @@ define root view entity ZC_CLP_IE_Project
       @Semantics.amount.currencyCode: 'DocumentCurrency'
       OpenTime,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
+      OpenAdminFee,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
       OpenExpenses,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
       TotalWIP,
@@ -116,14 +119,14 @@ define root view entity ZC_CLP_IE_Project
        @Semantics.amount.currencyCode: 'Currency'
       LTDLabourCosts,
       
-      @Semantics.amount.currencyCode: 'Currency'
-      SumOpenAmountInTransCrcy,      
+//      @Semantics.amount.currencyCode: 'Currency'
+//      SumOpenAmountInTransCrcy,      
       
-       @Semantics.amount.currencyCode: 'Currency'
-      SumOriginalAmountInTransacCrcy,
+//       @Semantics.amount.currencyCode: 'Currency'
+//      SumOriginalAmountInTransacCrcy,
       
-       @Semantics.amount.currencyCode: 'Currency'
-      SumOriginalAmountInProjectCrcy,
+//       @Semantics.amount.currencyCode: 'Currency'
+//      SumOriginalAmountInProjectCrcy,
       
        @Semantics.amount.currencyCode: 'Currency'
       SumOriginalAmountInGlobalCrcy,

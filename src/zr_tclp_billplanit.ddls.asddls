@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZR_TCLP_BILLPLANIT
   as select from ztclp_billplanit
 {

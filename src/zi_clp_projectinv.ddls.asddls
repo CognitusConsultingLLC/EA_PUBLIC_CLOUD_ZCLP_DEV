@@ -11,7 +11,7 @@ define view entity ZI_CLP_ProjectINV
   as select from ZI_CLP_ProjectBillingDocHdr
   association [0..1] to I_Customer                  as _I_Customer               on _I_Customer.Customer = $projection.BillToParty
   association [0..*] to ZI_CLP_BillingDoctItemBasic as _BillingDocumentItemBasic on _BillingDocumentItemBasic.BillingDocument = $projection.BillingDocument
-  association [0..1] to I_BusinessPartner                  as _BusinessPartner               on _BusinessPartner.BusinessPartner = $projection.BillToParty
+  association [0..1] to I_BusinessPartner           as _BusinessPartner          on _BusinessPartner.BusinessPartner = $projection.BillToParty
 {
   key BillingDocument,
       ProjectID,
@@ -88,6 +88,7 @@ define view entity ZI_CLP_ProjectINV
       case
       when  ( YY1_CLPNonStdDelivery_BDH = 'X' and YY1_CLPNonStdDelvrDate_BDH = '00000000'  ) then 'AWD'
       when  ( OverallBillingStatus = 'B' and AccountingTransferStatus = 'A' ) then 'TBP'
+       when  ( OverallBillingStatus = 'A' and YY1_CLPNonStdDelivery_BDH = '' and BillingDocumentDate >=  $session.system_date ) then 'PAD'
       when ( ( YY1_CLPNonStdDelivery_BDH = 'X'  and YY1_CLPNonStdDelvrDate_BDH is not null )
       or ( OverallBillingStatus = 'A'  and YY1_CLPNonStdDelivery_BDH = '' )
       ) then 'DLV'
@@ -97,6 +98,7 @@ define view entity ZI_CLP_ProjectINV
       case
       when  ( YY1_CLPNonStdDelivery_BDH = 'X' and YY1_CLPNonStdDelvrDate_BDH = '00000000'  ) then 'Pending Manual Delivery'
       when  ( OverallBillingStatus = 'B' and AccountingTransferStatus = 'A' ) then 'To Be Posted'
+       when  ( OverallBillingStatus = 'A' and YY1_CLPNonStdDelivery_BDH = '' and BillingDocumentDate >=  $session.system_date ) then 'Pending Auto Delivery'
       when ( ( YY1_CLPNonStdDelivery_BDH = 'X'  and YY1_CLPNonStdDelvrDate_BDH is not null )
           or ( OverallBillingStatus = 'A'  and YY1_CLPNonStdDelivery_BDH = '' )
           ) then 'Delivered'
@@ -134,7 +136,7 @@ define view entity ZI_CLP_ProjectINV
 
       @EndUserText.label: 'Admin Fees'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-      ItemAdminFee                                                                                           as AdminFees,
+      ItemAdminFee                                                                                            as AdminFees,
       //      @EndUserText.label: 'Expenses'
       //      @Semantics.amount.currencyCode: 'TransactionCurrency'
       //      cast( '0' as abap.dec(16,2) ) as Expenses,
@@ -158,18 +160,18 @@ define view entity ZI_CLP_ProjectINV
       @EndUserText.label: 'Expenses WriteOff'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
       ExpensesWriteOff,
-      
+
       @EndUserText.label: 'ProfessionalFee'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-//      TotalProfessionalFee - TimeWriteOff as ProfessionalFee,
-      cast( TotalProfessionalFee as abap.dec(15,2)) + cast( TimeWriteOff  as abap.dec(15,2)) as ProfessionalFee,
+      //      TotalProfessionalFee - TimeWriteOff as ProfessionalFee,
+      cast( TotalProfessionalFee as abap.dec(15,2)) + cast( TimeWriteOff  as abap.dec(15,2))                  as ProfessionalFee,
       @EndUserText.label: 'Expenses'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
-//      TotalExpenses - ExpensesWriteOff as  Expenses,
-      cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2)) as Expenses,
+      //      TotalExpenses - ExpensesWriteOff as  Expenses,
+      cast( TotalExpenses as abap.dec(15,2)) + cast( ExpensesWriteOff  as abap.dec(15,2))                     as Expenses,
       _BusinessPartner.IndependentAddressID,
       _BusinessPartner.BusinessPartner,
-      
+
       _BillingDocumentItemBasic,
       _UniqueBDWorkPackage,
       _OverallSDProcessStatus,

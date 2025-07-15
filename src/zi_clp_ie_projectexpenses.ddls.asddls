@@ -129,6 +129,8 @@ define view entity ZI_CLP_IE_ProjectExpenses
       _ProjectExpenses.CompanyCode,
       _ProjectExpenses.FiscalYear,
       _ProjectExpenses.ReferenceDocument_1,
+      _ProjectExpenses.AssignmentReference,      
+      _ProjectExpenses.YY1_ZAllocationKey_COB,
       _ProjectExpenses.WorkItem,
       _ProjectExpenses.WorkPackage,
       _ProjectExpenses.BillToParty,

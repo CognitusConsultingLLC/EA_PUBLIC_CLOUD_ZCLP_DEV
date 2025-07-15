@@ -141,13 +141,16 @@ association [0..1] to ZI_CLP_ProjectTimeEntry_A as _ProjectTimeEntry_A on _Proje
       cast('X' as boolean) else cast(' ' as boolean)
       end                                                 as OpenWIP,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
-      _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy as OpenTime,
+      _IE_ProjectTimeEntry_A.SumOfProfessionalFee as OpenTime,
+      @Semantics.amount.currencyCode: 'DocumentCurrency' 
+      _IE_ProjectTimeEntry_A.SumOfAdminFee as OpenAdminFee,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
       _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy   as OpenExpenses,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
 //      _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy + _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy as TotalWIP,
       cast(
-            case when _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy is not null then cast( _IE_ProjectTimeEntry_A.SumOfOpenRevTimeAmtInDocCrcy as abap.dec(15,2))  else 0 end +
+            case when _IE_ProjectTimeEntry_A.SumOfProfessionalFee is not null then cast( _IE_ProjectTimeEntry_A.SumOfProfessionalFee as abap.dec(15,2))  else 0 end +
+            case when _IE_ProjectTimeEntry_A.SumOfAdminFee is not null then cast( _IE_ProjectTimeEntry_A.SumOfAdminFee as abap.dec(15,2))  else 0 end +
             case when _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy       is not null then cast( _IE_ProjectExpenses_A.SumOfOpenRevExpAmtInDocCrcy as abap.dec(15,2))  else 0 end
             as abap.dec(16,2)
         ) as TotalWIP,
@@ -168,16 +171,16 @@ association [0..1] to ZI_CLP_ProjectTimeEntry_A as _ProjectTimeEntry_A on _Proje
       
 //      _ProjectTimeEntry_A.SumOpenQuantity,
       
-       @Semantics.amount.currencyCode: 'Currency'
-      _ProjectTimeEntry_A.SumOpenAmountInTransCrcy,
+//       @Semantics.amount.currencyCode: 'Currency'
+//      _ProjectTimeEntry_A.SumOpenAmountInTransCrcy,
       
 //      _ProjectTimeEntry_A.SumOriginalTotalQuantity,
       
-       @Semantics.amount.currencyCode: 'Currency'
-      _ProjectTimeEntry_A.SumOriginalAmountInTransacCrcy,
+//       @Semantics.amount.currencyCode: 'Currency'
+//      _ProjectTimeEntry_A.SumOriginalAmountInTransacCrcy,
       
-       @Semantics.amount.currencyCode: 'Currency'
-      _ProjectTimeEntry_A.SumOriginalAmountInProjectCrcy,
+//       @Semantics.amount.currencyCode: 'Currency'
+//      _ProjectTimeEntry_A.SumOriginalAmountInProjectCrcy,
       
        @Semantics.amount.currencyCode: 'Currency'
       _ProjectTimeEntry_A.SumOriginalAmountInGlobalCrcy,

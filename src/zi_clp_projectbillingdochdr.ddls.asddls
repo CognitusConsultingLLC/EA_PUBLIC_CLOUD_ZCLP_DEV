@@ -21,6 +21,8 @@ define view entity ZI_CLP_ProjectBillingDocHdr
 //  association [0..*] to ZI_CLP_BDocSum_MultiMatGrp    as _MatGrpBillingSums           on _MatGrpBillingSums.BillingDocument = $projection.BillingDocument
 
   association [0..*] to ZI_CLP_BillingDocSumByProdGrp    as _ProdGrpBillingSums           on _ProdGrpBillingSums.BillingDocument = $projection.BillingDocument
+  association [0..*] to ZI_CLP_BillingDocItmGrpByCond    as _BillingDocItmGrpByCondZADM           on _BillingDocItmGrpByCondZADM.BillingDocument = $projection.BillingDocument
+                                                                                                    and _BillingDocItmGrpByCondZADM.ConditionType = 'ZADM'
   //  association [0..1] to I_CustProjSlsOrdItemPartner as _CustProjSlsOrdItemPartner on  _CustProjSlsOrdItemPartner.CustomerProject = $projection.ProjectID
   //                                                                                  and _CustProjSlsOrdItemPartner.PartnerFunction = 'RE'
   //  association [0..1] to I_CustProjSlsOrdPartner     as _CustProjSlsOrdPartner     on  _CustProjSlsOrdPartner.CustomerProject = $projection.ProjectID
@@ -168,7 +170,10 @@ define view entity ZI_CLP_ProjectBillingDocHdr
 //        coalesce(
 //            cast(_ProdGrpBillingSums[TransformedProductGroup = 'A001'].TotalAmount as abap.dec(15,2)), 0
 //        ) as TotalProfessionalFee,
-      coalesce(cast(_ProdGrpBillingSums[TransformedProductGroup = 'P001'].TotalAmount as abap.dec(15,2)), 0) as TotalProfessionalFee,
+      coalesce(cast(_ProdGrpBillingSums[TransformedProductGroup = 'P001'].TotalAmount as abap.dec(15,2)), 0) 
+      - 
+      coalesce(cast(_BillingDocItmGrpByCondZADM.SumConditionAmount as abap.dec(15,2)), 0) 
+      as TotalProfessionalFee,
       @EndUserText.label: 'Expenses'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      _MatGrpBillingSums[ MaterialGroup = 'P002' ].TotalAmount                          as TotalExpenses,
@@ -188,7 +193,11 @@ define view entity ZI_CLP_ProjectBillingDocHdr
       @EndUserText.label: 'Item Admin Fee (ZADO + ZAD3)'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,
-      coalesce(cast(_ProdGrpBillingSums[ TransformedProductGroup = 'ZADM' ].TotalAmount as abap.dec(15,2)), 0) as ItemAdminFee,
+      coalesce(cast(_ProdGrpBillingSums[ TransformedProductGroup = 'ZADM' ].TotalAmount as abap.dec(15,2)), 0)
+      + 
+      coalesce(cast(_BillingDocItmGrpByCondZADM.SumConditionAmount as abap.dec(15,2)), 0)
+       as ItemAdminFee,
+      
       @EndUserText.label: 'Item Courtesy Discount'
       @Semantics.amount.currencyCode: 'TransactionCurrency'
 //      _MatGrpBillingSums[ MaterialGroup = 'B002' ].TotalAmount                          as ExpensesWriteOff,

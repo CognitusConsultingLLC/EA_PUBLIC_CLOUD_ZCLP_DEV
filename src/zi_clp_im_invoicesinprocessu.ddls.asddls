@@ -101,7 +101,7 @@ define view entity ZI_CLP_IM_InvoicesInProcessU
 }
 where
   Status = 'AWD' 
-//  or Status = 'TBP'
+  or Status = 'PAD'
 //  or ( OverallBillingStatus = 'B' and AccountingTransferStatus = 'A' )
 
 union select from ZI_CLP_ProjectPBD
@@ -189,7 +189,9 @@ union select from ZI_CLP_ProjectPBD
 where
        ( Status                     = 'IPR'
   or    Status                      = 'AWA'
+  or    Status                      = 'RWK'
   or    Status                      = 'PAD'
+  or    Status                      = 'PMD'
   or(
         PrelimBillingDocumentStatus = 'A'
     and YY1_CLPDocApprovalSts_BDH   = ''

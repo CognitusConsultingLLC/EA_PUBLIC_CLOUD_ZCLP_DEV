@@ -162,7 +162,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    DocumentDate,
     AccountingDocumentType,
 //    AccountingDocumentItem,
-//    AssignmentReference,
+    AssignmentReference,
 //    AccountingDocumentCategory,
 //    JournalEntryItemCategory,
 //    PostingKey,
@@ -284,7 +284,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    WBSElementInternalID,
 //    PartnerWBSElementInternalID,
 //    WBSElement,
-    ProjectInternalID
+    ProjectInternalID,
 //    PartnerProjectInternalID,
 //    WorkPackage,
 //    Project,
@@ -471,7 +471,7 @@ define view entity ZI_CLP_JournalEntryItem as select from I_JournalEntryItem
 //    YY1_TransferredDoc_COB,
 //    YY1_ReferenceWBS_COB,
 //    YY1_ZExpenseDate_COB,
-//    YY1_ZAllocationKey_COB,
+    YY1_ZAllocationKey_COB
 //    YY1_ConcExpVendorName_COB,
 //    /* Associations */
 //    _AccountAssignmentType,

@@ -6,7 +6,9 @@
 "ZTCLP_INV_P_HDR"
 ],
 "ASSOCIATED":
-[],
+[
+"ZR_TCLP_INV_P_ITM"
+],
 "BASE":
 [],
 "ANNO_REF":

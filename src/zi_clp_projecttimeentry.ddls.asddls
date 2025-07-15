@@ -9,10 +9,11 @@
 }
 define view entity ZI_CLP_ProjectTimeEntry
   as select from ZI_CLP_CustProjBillElemEntry
-  association [0..1] to I_TimeSheetRecord as _TimeSheetRecord on _TimeSheetRecord.TimeSheetAccountingDocument = $projection.ReferenceDocument
-  association [1..1] to I_PersonWorkAgrmtToExternalID  as _PersonWorkAgrmtToExternalID  on $projection.PersonnelNumber = _PersonWorkAgrmtToExternalID.PersonWorkAgreement
-  association [0..1] to ZI_CLP_Project as _ProjectDetails on _ProjectDetails.ProjectID = $projection.ProjectID
-//  association [0..1] to ZI_CLP_JournalEntryItem as _JournalEntryItem on _JournalEntryItem.AccountingDocument = $projection.AccountingDocument
+  association [0..1] to I_TimeSheetRecord             as _TimeSheetRecord             on _TimeSheetRecord.TimeSheetAccountingDocument = $projection.ReferenceDocument
+  association [1..1] to I_PersonWorkAgrmtToExternalID as _PersonWorkAgrmtToExternalID on $projection.PersonnelNumber = _PersonWorkAgrmtToExternalID.PersonWorkAgreement
+  association [0..1] to ZI_CLP_Project                as _ProjectDetails              on _ProjectDetails.ProjectID = $projection.ProjectID
+  association [0..1] to ZI_CLP_PBEE_WIP_RATE_BASIC    as _PBEE_WIP_RATE               on _PBEE_WIP_RATE.ProjBillgElmntEntrItmUuid = $projection.ProjBillgElmntEntrItmUUID
+  //  association [0..1] to ZI_CLP_JournalEntryItem as _JournalEntryItem on _JournalEntryItem.AccountingDocument = $projection.AccountingDocument
 {
   key ProjBillgElmntEntrItmUUID,
       ProjectBillingElementUUID,
@@ -126,12 +127,13 @@ define view entity ZI_CLP_ProjectTimeEntry
       ShipToParty,
       PersonnelNumber,
       _PersonWorkAgrmtToExternalID.PersonWorkAgreementExternalID,
-      DocumentDate, 
+      DocumentDate,
       _ProjectDetails.EngPartnerBP,
 
 
       _TimeSheetRecord.TimeSheetRecord                                               as TimeSheetRecord,
       _TimeSheetRecord.TimeSheetDate                                                 as TimeSheetDate,
+      _TimeSheetRecord.TimeSheetStatus                                               as TimeSheetStatus,
       _TimeSheetRecord.ActivityType                                                  as ActivityType,
       @Semantics.amount.currencyCode: 'Currency'
       _TimeSheetRecord.RecordedAmount                                                as RecordedAmount,
@@ -144,6 +146,35 @@ define view entity ZI_CLP_ProjectTimeEntry
       _TimeSheetRecord.ControllingArea                                               as ControllingArea,
       _TimeSheetRecord.TimeSheetWrkLocCode                                           as TimeSheetWrkLocCode,
       _TimeSheetRecord._TimeSheetWrkLoc._TimeSheetWrkLocText.TimeSheetWrkLocCodeName as TimeSheetWrkLocCodeName,
+
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      cast(_PBEE_WIP_RATE.NetPriceAmountInDocCrcy as abap.dec(16,2))                 as PSP0Rate,
+
+      cast(
+          cast(_PBEE_WIP_RATE.NetPriceAmountInDocCrcy as abap.dec(13,2))
+          * cast(OpenQuantity as abap.dec(13,3))
+          as abap.dec(16,2)
+      )                                                                              as ProfessionalFee,
+
+      _PBEE_WIP_RATE.AdminRate,
+
+      cast(
+          cast(_PBEE_WIP_RATE.NetPriceAmountInDocCrcy as abap.dec(13,2))
+          * cast(OpenQuantity as abap.dec(13,3))
+          * cast(_PBEE_WIP_RATE.AdminRate as abap.dec(5,2))
+          / cast(100 as abap.dec(5,2))
+          as abap.dec(16,2)
+      )                                                                              as AdminFee,
+
+      cast(
+          cast(_PBEE_WIP_RATE.NetPriceAmountInDocCrcy as abap.dec(13,2))
+          * cast(OpenQuantity as abap.dec(13,3))
+          * (1 + (cast(_PBEE_WIP_RATE.AdminRate as abap.dec(5,2)) / cast(100 as abap.dec(5,2))))
+          as abap.dec(16,2)
+      )                                                                              as TotalProfessionalFee,
+
+
+
 
       /* Associations */
       _AccountingDocument,
@@ -174,4 +205,7 @@ define view entity ZI_CLP_ProjectTimeEntry
       _Workpackage,
       _TimeSheetRecord,
       _PersonWorkAgrmtToExternalID
-}where QuantityUnit = 'H' and ProjBillgElmntEntrIsCancelled = ''
+}
+where
+      QuantityUnit                  = 'H'
+  and ProjBillgElmntEntrIsCancelled = ''

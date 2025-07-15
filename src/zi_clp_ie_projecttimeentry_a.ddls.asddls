@@ -13,8 +13,12 @@ define view entity ZI_CLP_IE_ProjectTimeEntry_A
   key ProjectID,
       @Semantics.quantity.unitOfMeasure: 'QuantityUnit'
       sum(OpenQuantity) as SumOfOpenQuantity,
+//      @Semantics.amount.currencyCode: 'DocumentCurrency'
+//      sum(OpenRevenueAmtInDocCrcy) as SumOfOpenRevTimeAmtInDocCrcy,
       @Semantics.amount.currencyCode: 'DocumentCurrency'
-      sum(OpenRevenueAmtInDocCrcy) as SumOfOpenRevTimeAmtInDocCrcy,
+      sum(ProfessionalFee) as SumOfProfessionalFee,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      sum(AdminFee) as SumOfAdminFee, 
       QuantityUnit,
       DocumentCurrency
 }

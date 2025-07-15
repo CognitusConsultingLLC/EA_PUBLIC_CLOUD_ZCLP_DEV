@@ -31,4 +31,8 @@ define service ZSD_CLP_INVOICEEDITOR {
   expose ZI_CLP_BillingDocItBillPlanIt  as BillingDocItBillPlanIt;
   expose ZI_CLP_LTD_calculations        as LTDCalculations;
   expose ZI_CLP_IM_UniqueBDWorkPackage  as UniqueBDWorkPackage;
+  expose ZI_CLP_JEToExcludeExpenses     as JEToExcludeExpenses;
+  expose ZI_CLP_Workpackage             as ProjectBillingElements;
+  expose ZI_CLP_NEW_PBEE                as NewPBEEs;
+  expose ZI_CLP_ProjectTimeEntry        as ProjectTimeEntry;
 }

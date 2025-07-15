@@ -129,6 +129,7 @@ define view entity ZI_CLP_ProjBillElemEntry_Basic
       _PrjBlgElmEntrJrnlEntrLink.CompanyCode                                            as CompanyCode,
       _PrjBlgElmEntrJrnlEntrLink.FiscalYear                                             as FiscalYear,
       _PrjBlgElmEntrJrnlEntrLink._GLAccountLineItemRawData.ReferenceDocument            as ReferenceDocument_1,
+      _PrjBlgElmEntrJrnlEntrLink._GLAccountLineItemRawData.AssignmentReference          as AssignmentReference,
       _PrjBlgElmEntrJrnlEntrLink._GLAccountLineItemRawData.WorkItem                     as WorkItem,
       _PrjBlgElmEntrJrnlEntrLink._GLAccountLineItemRawData.WorkPackage                  as WorkPackage,
       _PrjBlgElmEntrJrnlEntrLink._GLAccountLineItemRawData.BillToParty                  as BillToParty,

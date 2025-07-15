@@ -2,6 +2,7 @@
 @EndUserText.label: 'Projects list for Invoice Manager'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZC_CLP_IM_PROJECT
   as projection on ZI_CLP_IM_Project
 {

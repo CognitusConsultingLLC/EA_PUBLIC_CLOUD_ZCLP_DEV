@@ -1,8 +1,9 @@
 @AccessControl.authorizationCheck: #CHECK
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZR_TCLP_INVTRACK
-  as select from ZTCLP_INVTRACK
+  as select from ztclp_invtrack
 {
   key sap_uuid as SapUuid,
   proj_billg_elmnt_entr_itm_uuid as ProjBillgElmntEntrItmUuid,

@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection view for Unbilled Sch. Inv'
 @Metadata.ignorePropagatedAnnotations: true
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define view entity ZC_CLP_IM_UnbilledScheduledInv
   as projection on ZI_CLP_IM_UnbilledScheduledInv
 {

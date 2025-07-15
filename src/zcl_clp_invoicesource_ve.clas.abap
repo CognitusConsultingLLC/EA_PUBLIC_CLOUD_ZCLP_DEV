@@ -15,34 +15,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_clp_invoicesource_ve IMPLEMENTATION.
+CLASS ZCL_CLP_INVOICESOURCE_VE IMPLEMENTATION.
 
-
-  METHOD if_sadl_exit_calc_element_read~calculate.
-
-    CHECK NOT it_original_data IS INITIAL.
-
-    DATA : lt_calculated_data TYPE STANDARD TABLE OF ZC_CLP_IM_UnbilledScheduledInv WITH DEFAULT KEY.
-
-    MOVE-CORRESPONDING it_original_data TO lt_calculated_data.
-*
-    DATA(lv_manualUser) =  get_communication_user_id( ).
-*    'CC0000000025'
-    LOOP AT lt_calculated_data ASSIGNING FIELD-SYMBOL(<Item>).
-      IF  <Item>-CreatedByUser EQ lv_manualUser .
-        <Item>-Source = 'Manual'.
-      ELSE.
-        <Item>-Source = 'Scheduled'.
-      ENDIF.
-    ENDLOOP.
-*
-    MOVE-CORRESPONDING lt_calculated_data TO ct_calculated_data.
-
-  ENDMETHOD.
-
-
-  METHOD if_sadl_exit_calc_element_read~get_calculation_info.
-  ENDMETHOD.
 
   METHOD get_communication_user_id.
 
@@ -153,4 +127,30 @@ CLASS zcl_clp_invoicesource_ve IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD if_sadl_exit_calc_element_read~calculate.
+
+    CHECK NOT it_original_data IS INITIAL.
+
+    DATA : lt_calculated_data TYPE STANDARD TABLE OF ZC_CLP_IM_UnbilledScheduledInv WITH DEFAULT KEY.
+
+    MOVE-CORRESPONDING it_original_data TO lt_calculated_data.
+*
+    DATA(lv_manualUser) =  get_communication_user_id( ).
+*    'CC0000000025'
+    LOOP AT lt_calculated_data ASSIGNING FIELD-SYMBOL(<Item>).
+      IF  <Item>-CreatedByUser EQ lv_manualUser .
+        <Item>-Source = 'Manual'.
+      ELSE.
+        <Item>-Source = 'Scheduled'.
+      ENDIF.
+    ENDLOOP.
+*
+    MOVE-CORRESPONDING lt_calculated_data TO ct_calculated_data.
+
+  ENDMETHOD.
+
+
+  METHOD if_sadl_exit_calc_element_read~get_calculation_info.
+  ENDMETHOD.
 ENDCLASS.

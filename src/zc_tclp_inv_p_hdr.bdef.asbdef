@@ -7,4 +7,13 @@ use etag
   use create;
   use update;
   use delete;
+  use association _InvProcessItems{ create; }
+}
+define behavior for ZC_TCLP_INV_P_ITM alias ZcTclpInvPItm
+use etag
+
+{
+  use association _InvProcessHeader { }
+  use update;
+  use delete;
 }

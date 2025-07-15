@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_clp_communicationuser_ce IMPLEMENTATION.
+CLASS ZCL_CLP_COMMUNICATIONUSER_CE IMPLEMENTATION.
 
 
   METHOD if_rap_query_provider~select.

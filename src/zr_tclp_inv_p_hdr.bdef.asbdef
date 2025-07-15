@@ -1,48 +1,100 @@
 managed implementation in class ZBP_R_TCLP_INV_P_HDR unique;
 strict ( 2 );
 define behavior for ZR_TCLP_INV_P_HDR alias ZrTclpInvPHdr
-persistent table ZTCLP_INV_P_HDR
+persistent table ztclp_inv_p_hdr
 etag master LocalLastChanged
 lock master
-authorization master( global )
+authorization master ( global )
 
 {
   field ( readonly )
-   InvoiceProcessId,
-   CreatedBy,
-   CreatedOn,
-   LastChangedBy,
-   LastChangedOn,
-   LocalLastChanged;
+  InvoiceProcessId,
+  CreatedBy,
+  CreatedOn,
+  LastChangedBy,
+  LastChangedOn,
+  LocalLastChanged;
 
   field ( numbering : managed )
-   InvoiceProcessId;
+  InvoiceProcessId;
 
 
   create;
   update;
   delete;
 
-  mapping for ZTCLP_INV_P_HDR
-  {
-    InvoiceProcessId = invoice_process_id;
-    ProjectId = project_id;
-    InvoiceDate = invoice_date;
-    TransactionCurrency = transaction_currency;
-    MarkOa = mark_oa;
-    ReliWip = reli_wip;
-    FinalInv = final_inv;
-    OutSourceSl = out_source_sl;
-    InvoiceInpFeeValue = invoice_inp_fee_value;
-    InvoiceInpAdminFeeValue = invoice_inp_admin_fee_value;
-    InvoiceInpExpenseValue = invoice_inp_expense_value;
-    InvoiceInpCourtesyDisc = invoice_inp_courtesy_disc;
-    InvoiceInpPriorAccAmount = invoice_inp_prior_acc_amount;
-    TotalInvoiceAmt = total_invoice_amt;
-    CreatedBy = created_by;
-    CreatedOn = created_on;
-    LastChangedBy = last_changed_by;
-    LastChangedOn = last_changed_on;
-    LocalLastChanged = local_last_changed;
+  association _InvProcessItems { create ; }
+
+  mapping for ztclp_inv_p_hdr
+    {
+      InvoiceProcessId         = invoice_process_id;
+      ProjectId                = project_id;
+      InvoiceDate              = invoice_date;
+      TransactionCurrency      = transaction_currency;
+      MarkOa                   = mark_oa;
+      ReliWip                  = reli_wip;
+      FinalInv                 = final_inv;
+      OutSourceSl              = out_source_sl;
+      InvoiceInpFeeValue       = invoice_inp_fee_value;
+      InvoiceInpAdminFeeValue  = invoice_inp_admin_fee_value;
+      InvoiceInpExpenseValue   = invoice_inp_expense_value;
+      InvoiceInpCourtesyDisc   = invoice_inp_courtesy_disc;
+      InvoiceInpPriorAccAmount = invoice_inp_prior_acc_amount;
+      TotalInvoiceAmt          = total_invoice_amt;
+      Pbd                      = pbd;
+      Invoice                  = invoice;
+      Status                   = status;
+      Message                  = message;
+      CreatedBy                = created_by;
+      CreatedOn                = created_on;
+      LastChangedBy            = last_changed_by;
+      LastChangedOn            = last_changed_on;
+      LocalLastChanged         = local_last_changed;
+    }
+}
+
+define behavior for ZR_TCLP_INV_P_ITM alias ZrTclpInvPItm
+persistent table ztclp_inv_p_itm
+etag master LocalLastChanged
+lock dependent
+authorization dependent
+
+{
+  field ( readonly )
+  SapUuid,
+  InvoiceProcessId,
+  CreatedBy,
+  CreatedOn,
+  LastChangedBy,
+  Lastchanged,
+  LocalLastChanged;
+
+  field ( numbering : managed ) SapUuid;
+
+
+  update;
+  delete;
+
+  association _InvProcessHeader {  }
+
+  mapping for ztclp_inv_p_itm
+    {
+    SapUuid = sap_uuid;
+    InvoiceProcessId         = invoice_process_id;
+    Projbillgelmntentritmuuid = projbillgelmntentritmuuid;
+    Projectbillingelementuuid = projectbillingelementuuid;
+    Wbselementinternalid = wbselementinternalid;
+    Project = project;
+    Projectbillingrequestuuid = projectbillingrequestuuid;
+    Pbr = pbr;
+    Bdr = bdr;
+    Pbd = pbd;
+    Invoice = invoice;
+    Status = status;
+    Createdby = createdby;
+    Createdon = createdon;
+    Lastchangedby = lastchangedby;
+    Lastchanged = lastchanged;
+    Locallastchanged = locallastchanged;
   }
 }

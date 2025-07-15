@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection for PBD of Project Inv Finalizer'
 @Metadata.ignorePropagatedAnnotations: true
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZC_CLP_IF_PROJECTPBD
   as projection on ZI_CLP_IF_ProjectPBD
 {

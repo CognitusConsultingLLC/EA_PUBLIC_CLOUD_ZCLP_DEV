@@ -12,6 +12,11 @@ define view entity ZI_CLP_CustProjBillElemEntry
   association [0..1] to ZI_CLP_Workpackage   as _Workpackage   on _Workpackage.WBSElementInternalID = $projection.WBSElementInternalID
   association [0..1] to ZI_CLP_BPPersonExtID as _BPPersonExtID on _BPPersonExtID.PersonWorkAgreement = $projection.PersonnelNumber
   association [0..1] to I_Product            as _Product       on _Product.Product = $projection.Material
+  association [0..1] to I_JournalEntryItem            as _JournalEntryItem       on _JournalEntryItem.Ledger = $projection.Ledger
+                                                                               and _JournalEntryItem.AccountingDocument = $projection.AccountingDocument
+                                                                               and _JournalEntryItem.LedgerGLLineItem = $projection.LedgerGLLineItem
+                                                                               and _JournalEntryItem.CompanyCode = $projection.CompanyCode
+                                                                               and _JournalEntryItem.FiscalYear = $projection.FiscalYear
 {
   key ZI_CLP_ProjBillElemEntry_Basic.ProjBillgElmntEntrItmUUID,
       ZI_CLP_ProjBillElemEntry_Basic.ProjectBillingElementUUID,
@@ -120,6 +125,8 @@ define view entity ZI_CLP_CustProjBillElemEntry
       ZI_CLP_ProjBillElemEntry_Basic.CompanyCode,
       ZI_CLP_ProjBillElemEntry_Basic.FiscalYear,
       ZI_CLP_ProjBillElemEntry_Basic.ReferenceDocument_1,
+      ZI_CLP_ProjBillElemEntry_Basic.AssignmentReference,      
+      _JournalEntryItem.YY1_ZAllocationKey_COB,
       ZI_CLP_ProjBillElemEntry_Basic.WorkItem,
       ZI_CLP_ProjBillElemEntry_Basic.WorkPackage,
       ZI_CLP_ProjBillElemEntry_Basic.BillToParty,

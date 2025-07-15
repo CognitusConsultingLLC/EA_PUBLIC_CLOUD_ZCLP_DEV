@@ -1,6 +1,7 @@
 @Metadata.allowExtensions: true
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 @AccessControl.authorizationCheck: #CHECK
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define root view entity ZC_TCLP_BILLPLANIT
   provider contract transactional_query
   as projection on ZR_TCLP_BILLPLANIT

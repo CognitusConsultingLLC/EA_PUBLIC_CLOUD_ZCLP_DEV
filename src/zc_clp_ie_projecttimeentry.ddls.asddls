@@ -136,6 +136,15 @@ define view entity ZC_CLP_IE_ProjectTimeEntry
       EmailAddress,
       PersonFullName,
       EngPartnerBP,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      PSP0Rate,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      ProfessionalFee,
+      AdminRate,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      AdminFee,
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      TotalProfessionalFee,
       /* Associations */
       _AccountingDocument,
       _CompanyCode,

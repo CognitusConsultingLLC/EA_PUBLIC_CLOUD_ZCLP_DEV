@@ -1,0 +1,28 @@
+managed implementation in class ZBP_R_TCLP_WIP_RATE unique;
+strict ( 2 );
+define behavior for ZR_TCLP_WIP_RATE alias ZrTclpWipRate
+persistent table ZTCLP_WIP_RATE
+lock master
+authorization master( global )
+
+{
+  field ( readonly )
+   SapUuid;
+
+  field ( numbering : managed )
+   SapUuid;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZTCLP_WIP_RATE
+  {
+    SapUuid = sap_uuid;
+    ProjBillgElmntEntrItmUuid = proj_billg_elmnt_entr_itm_uuid;
+    NetPriceAmountInDocCrcy = net_price_amount_in_doc_crcy;
+    DocumentCurrency = document_currency;
+    AdminRate = admin_rate;
+  }
+}

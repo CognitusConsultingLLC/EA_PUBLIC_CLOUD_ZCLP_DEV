@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TCLP_WIP_RATE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TCLP_WIP_RATE'
+  }
+}
+define service ZAPI_CLP_WIP_RATE_O4
+  provider contracts odata_v4_webapi {
+  expose ZC_TCLP_WIP_RATE;
+}

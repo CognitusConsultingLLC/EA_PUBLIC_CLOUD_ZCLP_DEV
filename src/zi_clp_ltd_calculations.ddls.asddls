@@ -15,9 +15,9 @@ define view entity ZI_CLP_LTD_calculations
   key ProjectInternalID,
       //        key GLAccount,
   key cast('BilledAmount' as abap.char(20)) as GLType,
-      @Semantics.amount.currencyCode: 'TransactionCurrency'
-      sum(AmountInTransactionCurrency)      as TotalAmount,
-      TransactionCurrency
+      @Semantics.amount.currencyCode: 'GlobalCurrency'
+      sum(AmountInGlobalCurrency)      as TotalAmount,
+      GlobalCurrency
 }
 where
        Ledger    = '0L'
@@ -36,7 +36,7 @@ where
 group by
   ProjectInternalID,
   //        GLType,
-  TransactionCurrency
+  GlobalCurrency
 
 union all
 
@@ -44,8 +44,8 @@ select from I_JournalEntryItem as I_JournalEntryItem
 {
   key ProjectInternalID,
   key cast('LabourCosts' as abap.char(20)) as GLType,
-      sum(AmountInTransactionCurrency)     as TotalAmount,
-      TransactionCurrency
+      sum(AmountInGlobalCurrency)     as TotalAmount,
+      GlobalCurrency
 }
 where
       Ledger    = '0L'
@@ -54,4 +54,4 @@ where
 ////  and IsReversed = '' 
 group by
   ProjectInternalID,
-  TransactionCurrency;
+  GlobalCurrency;

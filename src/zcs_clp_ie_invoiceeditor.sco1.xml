@@ -71,6 +71,28 @@
       <SRVC_TYPE>HT</SRVC_TYPE>
       <SRVC_NAME>D87BB727C3286BEFDABFF222E8966E</SRVC_NAME>
      </item>
+     <item>
+      <COMMUNICATION_SCENARIO_ID>ZCS_CLP_IE_INVOICEEDITOR</COMMUNICATION_SCENARIO_ID>
+      <INBOUND_ID>0005</INBOUND_ID>
+      <IBS_ID>ZAPI_CLP_INV_P_HDR_O4_0001_G4BA</IBS_ID>
+      <RELEASE_STATUS>1</RELEASE_STATUS>
+      <IBS_TYPE>G4BA</IBS_TYPE>
+      <IBS_TYPE_TEXT>OData V4</IBS_TYPE_TEXT>
+      <TEXT>ZAPI_CLP_INV_P_HDR_O4</TEXT>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <SRVC_NAME>C49C09507A55B21323E9C4FDEE193D</SRVC_NAME>
+     </item>
+     <item>
+      <COMMUNICATION_SCENARIO_ID>ZCS_CLP_IE_INVOICEEDITOR</COMMUNICATION_SCENARIO_ID>
+      <INBOUND_ID>0006</INBOUND_ID>
+      <IBS_ID>ZAPI_CLP_WIP_RATE_O4_0001_G4BA</IBS_ID>
+      <RELEASE_STATUS>1</RELEASE_STATUS>
+      <IBS_TYPE>G4BA</IBS_TYPE>
+      <IBS_TYPE_TEXT>OData V4</IBS_TYPE_TEXT>
+      <TEXT>ZAPI_CLP_WIP_RATE_O4</TEXT>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <SRVC_NAME>8C14AAEFA7EA171FC66DD41FC51F57</SRVC_NAME>
+     </item>
     </INBOUND>
     <AUTH>
      <item>
@@ -79,7 +101,7 @@
       <TEXT>Sales Document: Authorization for Sales Document Types</TEXT>
       <AUTH_ITEM>
        <item>
-        <UUID>+hY+YllKH+CP5JdZdeXlew==</UUID>
+        <UUID>+hY+YllKH+CXweOaGwZqMw==</UUID>
         <AUTH_OBJECT>V_VBAK_AAT</AUTH_OBJECT>
         <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
         <TEXT>Sales Document: Authorization for Sales Document Types</TEXT>
@@ -87,63 +109,63 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Archive, Close Out, Display in Value Help, Maintenance of manual auth., Release, Print, edit messages, Change, Display, Create or generate, Maintenance of payment cards, Reload, Delete, Display of payment cards, Lock</VALUE>
+          <VALUE>Print, edit messages, Display, Lock, Display in Value Help, Release, Display of payment cards, Maintenance of payment cards, Create or generate, Reload, Delete, Archive, Close Out, Change, Maintenance of manual auth.</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeblew==</UUID>
-            <LOW_VALUE>24</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdecFew==</UUID>
-            <LOW_VALUE>C4</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdedFew==</UUID>
-            <LOW_VALUE>F4</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeYFew==</UUID>
-            <LOW_VALUE>C3</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeZFew==</UUID>
-            <LOW_VALUE>43</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeaFew==</UUID>
+            <UUID>+hY+YllKH+CXweOaGwaKMw==</UUID>
             <LOW_VALUE>04</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeYlew==</UUID>
-            <LOW_VALUE>02</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdedlew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvGKMw==</UUID>
             <LOW_VALUE>03</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeZlew==</UUID>
-            <LOW_VALUE>01</LOW_VALUE>
+            <UUID>+hY+YllKH+CXweOuXvEKMw==</UUID>
+            <LOW_VALUE>05</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeclew==</UUID>
-            <LOW_VALUE>C1</LOW_VALUE>
+            <UUID>+hY+YllKH+CXweOuXvBKMw==</UUID>
+            <LOW_VALUE>F4</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeeFew==</UUID>
-            <LOW_VALUE>25</LOW_VALUE>
+            <UUID>+hY+YllKH+CXweOuXvBqMw==</UUID>
+            <LOW_VALUE>43</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeelew==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdealew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvHKMw==</UUID>
             <LOW_VALUE>C2</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdebFew==</UUID>
-            <LOW_VALUE>05</LOW_VALUE>
+            <UUID>+hY+YllKH+CXweOuXvCKMw==</UUID>
+            <LOW_VALUE>C1</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvFKMw==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvGqMw==</UUID>
+            <LOW_VALUE>25</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvEqMw==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvDqMw==</UUID>
+            <LOW_VALUE>24</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvFqMw==</UUID>
+            <LOW_VALUE>C4</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvDKMw==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvCqMw==</UUID>
+            <LOW_VALUE>C3</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Activity</TEXT>
@@ -155,7 +177,7 @@
           <VALUE>*</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdefFew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvHqMw==</UUID>
             <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>
@@ -172,7 +194,7 @@
       <TEXT>Sales Document: Authorization for Sales Areas</TEXT>
       <AUTH_ITEM>
        <item>
-        <UUID>+hY+YllKH+CP5JdZdeflew==</UUID>
+        <UUID>+hY+YllKH+CXweOuXvIKMw==</UUID>
         <AUTH_OBJECT>V_VBAK_VKO</AUTH_OBJECT>
         <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
         <TEXT>Sales Document: Authorization for Sales Areas</TEXT>
@@ -180,38 +202,38 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Print, edit messages, Display, Create or generate, Display in Value Help, Delete, Archive, Reload, Change</VALUE>
+          <VALUE>Display in Value Help, Reload, Delete, Print, edit messages, Display, Create or generate, Archive, Change</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdegFew==</UUID>
-            <LOW_VALUE>04</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdehFew==</UUID>
-            <LOW_VALUE>03</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdejFew==</UUID>
-            <LOW_VALUE>01</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdeglew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvLKMw==</UUID>
             <LOW_VALUE>F4</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeilew==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdejlew==</UUID>
-            <LOW_VALUE>24</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>+hY+YllKH+CP5JdZdehlew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvJqMw==</UUID>
             <LOW_VALUE>25</LOW_VALUE>
            </item>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeiFew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvJKMw==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvKqMw==</UUID>
+            <LOW_VALUE>04</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvIqMw==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvLqMw==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvKKMw==</UUID>
+            <LOW_VALUE>24</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>+hY+YllKH+CXweOuXvMKMw==</UUID>
             <LOW_VALUE>02</LOW_VALUE>
            </item>
           </VALUES>
@@ -224,7 +246,7 @@
           <VALUE>*</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdekFew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvMqMw==</UUID>
             <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>
@@ -236,7 +258,7 @@
           <VALUE>*</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdeklew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvNKMw==</UUID>
             <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>
@@ -248,7 +270,7 @@
           <VALUE>*</VALUE>
           <VALUES>
            <item>
-            <UUID>+hY+YllKH+CP5JdZdelFew==</UUID>
+            <UUID>+hY+YllKH+CXweOuXvNqMw==</UUID>
             <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>

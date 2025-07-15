@@ -1,6 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection view for Invoices in Process'
 @Metadata.ignorePropagatedAnnotations: true
+@Consumption.dbHints: ['USE_HEX_PLAN']
 define view entity ZC_CLP_IM_InvoicesInProcess
   as projection on ZI_CLP_IM_InvoicesInProcess
 {

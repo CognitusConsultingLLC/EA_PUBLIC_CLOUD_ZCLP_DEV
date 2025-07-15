@@ -20,10 +20,15 @@ define root view entity ZC_TCLP_INV_P_HDR
   InvoiceInpCourtesyDisc,
   InvoiceInpPriorAccAmount,
   TotalInvoiceAmt,
+  Pbd,
+  Invoice,
+  Status,
+  Message,
   CreatedBy,
   CreatedOn,
   LastChangedBy,
   LastChangedOn,
-  LocalLastChanged
+  LocalLastChanged,
   
+  _InvProcessItems: redirected to composition child  ZC_TCLP_INV_P_ITM
 }

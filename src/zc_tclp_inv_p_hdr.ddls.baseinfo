@@ -6,9 +6,14 @@
 "ZR_TCLP_INV_P_HDR"
 ],
 "ASSOCIATED":
-[],
+[
+"ZC_TCLP_INV_P_ITM",
+"ZR_TCLP_INV_P_ITM"
+],
 "BASE":
-[],
+[
+"ZR_TCLP_INV_P_HDR"
+],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":
